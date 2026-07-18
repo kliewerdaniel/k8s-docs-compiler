@@ -1,0 +1,16 @@
+# Build inputs (large, regenerable)
+corpus/
+out/
+out_real/
+out_demo/
+out_test/
+out_test2/
+.k8s_cc_cache/
+__pycache__/
+*.pyc
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/public/dataset.json

@@ -1,0 +1,70 @@
+{
+  "swagger": "2.0",
+  "info": { "title": "Kubernetes", "version": "v1.34.0" },
+  "paths": {
+    "/apis/apps/v1/namespaces/{namespace}/deployments": {
+      "post": { "operationId": "createDeployment", "description": "create a Deployment" },
+      "get": { "operationId": "listDeployment", "description": "list Deployments" }
+    },
+    "/api/v1/namespaces/{namespace}/pods": {
+      "post": { "operationId": "createPod", "description": "create a Pod" },
+      "get": { "operationId": "listPod", "description": "list Pods" }
+    },
+    "/api/v1/namespaces/{namespace}/services": {
+      "post": { "operationId": "createService", "description": "create a Service" }
+    }
+  },
+  "definitions": {
+    "io.k8s.api.apps.v1.Deployment": {
+      "description": "Deployment enables declarative updates for Pods and ReplicaSets.",
+      "properties": {
+        "apiVersion": { "type": "string" },
+        "kind": { "type": "string" },
+        "metadata": { "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta" },
+        "spec": { "$ref": "#/definitions/io.k8s.api.apps.v1.DeploymentSpec" },
+        "status": { "$ref": "#/definitions/io.k8s.api.apps.v1.DeploymentStatus" }
+      }
+    },
+    "io.k8s.api.apps.v1.DeploymentSpec": {
+      "description": "Specification of the desired behavior of the Deployment.",
+      "properties": {
+        "replicas": { "type": "integer" },
+        "selector": { "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector" },
+        "template": { "$ref": "#/definitions/io.k8s.api.core.v1.PodTemplateSpec" }
+      }
+    },
+    "io.k8s.api.core.v1.Pod": {
+      "description": "Pod is a collection of containers that can run on a host.",
+      "properties": {
+        "apiVersion": { "type": "string" },
+        "kind": { "type": "string" },
+        "metadata": { "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta" },
+        "spec": { "$ref": "#/definitions/io.k8s.api.core.v1.PodSpec" }
+      }
+    },
+    "io.k8s.api.core.v1.Service": {
+      "description": "Service is a named abstraction of software service.",
+      "properties": {
+        "spec": { "$ref": "#/definitions/io.k8s.api.core.v1.ServiceSpec" }
+      }
+    },
+    "io.k8s.api.core.v1.ServiceSpec": {
+      "description": "ServiceSpec describes the attributes of a Service.",
+      "properties": {
+        "selector": { "type": "object" },
+        "ports": { "type": "array" }
+      }
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta": {
+      "description": "ObjectMeta is metadata for API objects.",
+      "properties": { "name": { "type": "string" }, "namespace": { "type": "string" } }
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector": {
+      "description": "LabelSelector is a label query over a set of resources.",
+      "properties": { "matchLabels": { "type": "object" } }
+    },
+    "io.k8s.api.apps.v1.DeploymentStatus": { "description": "DeploymentStatus is status." },
+    "io.k8s.api.core.v1.PodSpec": { "description": "PodSpec is the pod specification." },
+    "io.k8s.api.core.v1.PodTemplateSpec": { "description": "PodTemplateSpec describes pod template." }
+  }
+}
