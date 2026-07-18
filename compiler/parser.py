@@ -222,16 +222,29 @@ def build_api_nodes(corpus: RawCorpus, g: KnowledgeGraph,
             if method.lower() not in ("get", "post", "put", "delete", "patch"):
                 continue
             node_id = "apipath:" + method.lower() + " " + path
+            # infer the API object kind from the path (e.g. .../v1/deployments -> Deployment)
+            seg = [s for s in path.split("/") if s and "{" not in s]
+            kind = seg[-1].split(".")[0].split("-")[0].split("(")[0].capitalize() \
+                if seg else method
+            title = op.get("operationId", method + " " + path)
             g.add_node(Node(
                 id=node_id, type=NodeType.API_PATH.value,
-                title=op.get("operationId", method + " " + path),
+                title=title,
                 summary=op.get("description", "") or "",
+                body=f"{method.upper()} {path}",
                 version=corpus.version,
                 tags=[path.split("/")[1] if path.startswith("/apis/") else "core"],
                 meta={"method": method.lower(), "path": path,
-                      "operationId": op.get("operationId")},
+                      "operationId": op.get("operationId"), "kind": kind},
                 provenance=[Provenance(source="swagger.json", quote=path)],
             ))
+            # link the API path to its API object (keeps it connected, not an orphan)
+            if kind in api_map:
+                g.add_edge(Edge(
+                    from_id=node_id, to_id=api_map[kind],
+                    type=EdgeType.RELATED_TO.value, label="exposes API object",
+                    provenance=[Provenance(source="swagger.json", quote=path)],
+                ))
     # cross-link: pages whose title matches a Kind get api_for edge
     linked = 0
     for node in g.nodes:

@@ -6,8 +6,8 @@ import { KnowledgeStore } from "@/lib/store";
 
 export default function Relationships() {
   const { graph } = useGraph();
-  if (!graph) return <p className="muted">Loading…</p>;
-  const store = useMemo(() => new KnowledgeStore(graph), [graph]);
+  const store = useMemo(() => (graph ? new KnowledgeStore(graph) : null), [graph]);
+  if (!graph || !store) return <p className="muted">Loading…</p>;
   const owns = graph.edges.filter((e) => e.type === "owns");
   const apiFor = graph.edges.filter((e) => e.type === "api_for");
   const controlPlane = graph.nodes.filter((n) => n.type === "controller");

@@ -7,8 +7,8 @@ import { KnowledgeStore } from "@/lib/store";
 export default function LearningPaths() {
   const { graph } = useGraph();
   const [sel, setSel] = useState<string | null>(null);
-  if (!graph) return <p className="muted">Loading…</p>;
-  const store = useMemo(() => new KnowledgeStore(graph), [graph]);
+  const store = useMemo(() => (graph ? new KnowledgeStore(graph) : null), [graph]);
+  if (!graph || !store) return <p className="muted">Loading…</p>;
 
   // Build prerequisite chains via BFS over prerequisite_of edges (incoming).
   const keyConcepts = graph.nodes

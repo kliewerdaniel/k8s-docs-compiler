@@ -14,8 +14,8 @@ const SEED = [
 export default function DecisionExplorer() {
   const { graph } = useGraph();
   const [picked, setPicked] = useState<string | null>(null);
-  if (!graph) return <p className="muted">Loading…</p>;
-  const store = useMemo(() => new KnowledgeStore(graph), [graph]);
+  const store = useMemo(() => (graph ? new KnowledgeStore(graph) : null), [graph]);
+  if (!graph || !store) return <p className="muted">Loading…</p>;
 
   const node = picked ? store.byId.get(picked) : null;
   const related = picked ? store.relatedTo(picked, 30) : [];

@@ -8,8 +8,8 @@ export default function ApiExplorer() {
   const { graph } = useGraph();
   const [q, setQ] = useState("");
   const [group, setGroup] = useState("all");
-  if (!graph) return <p className="muted">Loading…</p>;
-  const store = useMemo(() => new KnowledgeStore(graph), [graph]);
+  const store = useMemo(() => (graph ? new KnowledgeStore(graph) : null), [graph]);
+  if (!graph || !store) return <p className="muted">Loading…</p>;
   const objs = graph.nodes.filter((n) => n.type === "api_object");
   const groups = ["all", ...Array.from(new Set(objs.map((o) => (o.meta?.group as string) || "core")))];
   const filtered = objs

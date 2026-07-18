@@ -54,18 +54,23 @@ def pass_compress(g: KnowledgeGraph, body_max: int = 4000) -> int:
 
 
 def pass_drop_orphans(g: KnowledgeGraph) -> int:
-    """Drop nodes with no edges and no meaningful content (keeps graph clean)."""
+    """Drop nodes with no edges and no meaningful content (keeps graph clean).
+    Nodes derived from the API spec (swagger.json) or with structured meta are
+    always retained even if currently unlinked — they are primary artifacts.
+    """
     connected = {e.from_id for e in g.edges} | {e.to_id for e in g.edges}
     keep: List[Node] = []
     removed = 0
     for n in g.nodes:
-        if n.id in connected:
+        if n.id in connected or (n.body and len(n.body) > 40) or n.meta or \
+           any(p.source == "swagger.json" for p in n.provenance):
             keep.append(n)
-        elif n.body and len(n.body) > 40:
-            keep.append(n)  # has content, keep even if isolated
         else:
             removed += 1
     g.nodes = keep
+    # drop edges referencing removed nodes
+    valid = {n.id for n in g.nodes}
+    g.edges = [e for e in g.edges if e.from_id in valid and e.to_id in valid]
     return removed
 
 
