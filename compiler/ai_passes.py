@@ -141,21 +141,33 @@ def _cache_path(cache_dir: str, key: str) -> str:
     return os.path.join(cache_dir, "ai_" + key[:40] + ".json")
 
 
-def _cached(fn: Callable[[], Optional[dict]], cache_dir: str, key: str
+def _cached(fn: Callable[[], Optional[dict]], cache_dir: str, key: str,
+            valid: Optional[Callable[[Optional[dict]], bool]] = None
             ) -> Optional[dict]:
     p = _cache_path(cache_dir, key)
     if os.path.exists(p):
         try:
-            return json.load(open(p, "r", encoding="utf-8"))
+            cached = json.load(open(p, "r", encoding="utf-8"))
+            if valid is None or valid(cached):
+                return cached
         except Exception:
             pass
     out = fn()
-    if out is not None:
+    if out is not None and (valid is None or valid(out)):
         try:
             json.dump(out, open(p, "w", encoding="utf-8"))
         except Exception:
             pass
     return out
+
+
+def _valid_batch(out: Optional[dict]) -> bool:
+    if not out or not isinstance(out, dict):
+        return False
+    cards = out.get("cards")
+    if not isinstance(cards, list) or not cards:
+        return False
+    return all(isinstance(c, dict) and c.get("id") for c in cards)
 
 
 # ---------------------------------------------------------------------------
@@ -244,11 +256,13 @@ def pass_synthesis(g: KnowledgeGraph, client: Any, cache_dir: str,
         key = content_hash({"m": model, "t": "synth_batch", "c": user})
         out = _cached(lambda: client.chat_json(system, user,
                                                max_tokens=700 * len(b)),
-                      cache_dir, key)
+                      cache_dir, key, valid=_valid_batch)
         if not out:
             return
-        cards = out.get("cards") or []
+        cards: list = out.get("cards") or []
         for c in cards:
+            if not isinstance(c, dict):  # defensive: skip malformed entries
+                continue
             cid = c.get("id")
             n = by_id.get(cid)
             if not n:
