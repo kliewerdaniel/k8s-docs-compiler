@@ -48,6 +48,7 @@ This mirrors the `chatgpt-compile.vercel.app` deployment pattern.
 | `/learn` | Learning Paths (prerequisite chains) |
 | `/rbac` | RBAC & Permissions (what a manifest requires) |
 | `/search` | Full-text Search with provenance |
+| `/docs` | Docs — the synthesized knowledge card for a node (open from Search/API/Graph) |
 
 ## Architecture
 

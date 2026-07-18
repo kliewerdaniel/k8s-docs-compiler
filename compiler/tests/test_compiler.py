@@ -190,3 +190,69 @@ def test_ai_disabled_by_default_deterministic(graph):
     ai = [n for n in graph.nodes if n.derived_by.startswith("ai:")]
     ai_e = [e for e in graph.edges if e.derived_by.startswith("ai:")]
     assert not ai and not ai_e
+
+
+# -------------------------------------------------------------------------
+# AI SYNTHESIS PASS (offline: fake client, no network)
+# -------------------------------------------------------------------------
+
+class _FakeClient:
+    """Returns scripted JSON so we can test the synthesis pass without a model.
+    The batched pass expects a {"cards":[{id, ...}]} response."""
+    def __init__(self):
+        self.calls = 0
+        self.model = "fake"
+    def chat_json(self, system, user, max_tokens=700, temperature=0.3):
+        self.calls += 1
+        # one card per node we feed it (the test feeds a single-node batch)
+        return {
+            "cards": [{
+                "id": "gloss:pod",
+                "overview": "A Pod is the smallest deployable unit in Kubernetes.",
+                "why_it_matters": "Pods are how your containers actually run.",
+                "key_facts": ["Wraps one or more containers", "Shares storage/network"],
+                "pitfalls": ["Don't run one-container-per-Pod blindly"],
+                "related": ["Deployment", "ReplicaSet"],
+            }]
+        }
+
+
+def test_synthesis_pass_populates_body():
+    from compiler import ai_passes
+    cfg = CompilerConfig.load(overrides={"cache_dir": "out_test_ai"})
+    g = KnowledgeGraph(meta={"corpus_version": "t", "build_seconds": 0,
+                              "source_url": "", "generated_at": "", "ir_version": 1})
+    n = Node(id="gloss:pod", type=NodeType.GLOSSARY.value, title="Pod",
+             summary="", body="",
+             provenance=[Provenance(source="reference/glossary/pod.md",
+                                    quote="Pods are the smallest deployable units.")])
+    g.add_node(n)
+    client = _FakeClient()
+    done = ai_passes.pass_synthesis(g, client, cfg.cache_dir)
+    assert done == 1
+    assert "why it matters" in n.body.lower()
+    assert n.summary
+    assert n.derived_by.startswith("ai:")
+    assert n.confidence < 1.0
+
+
+def test_synthesis_skips_nodes_with_real_body():
+    from compiler import ai_passes
+    cfg = CompilerConfig.load(overrides={"cache_dir": "out_test_ai"})
+    g = KnowledgeGraph(meta={"corpus_version": "t", "build_seconds": 0,
+                              "source_url": "", "generated_at": "", "ir_version": 1})
+    n = Node(id="page:x", type=NodeType.PAGE.value, title="Big Page",
+             body="X" * 900)  # already has substantial deterministic content
+    g.add_node(n)
+    client = _FakeClient()
+    done = ai_passes.pass_synthesis(g, client, cfg.cache_dir)
+    assert done == 0  # skipped, no network call
+    assert len(n.body) == 900
+
+
+def test_pass_registry_toggle():
+    from compiler import ai_passes
+    assert ai_passes.resolve_passes(False, None) == []
+    assert ai_passes.resolve_passes(True, None) == ["synthesis", "prerequisites", "clusters"]
+    assert ai_passes.resolve_passes(True, "synthesis") == ["synthesis"]
+    assert ai_passes.resolve_passes(True, "synthesis,bogus") == ["synthesis"]

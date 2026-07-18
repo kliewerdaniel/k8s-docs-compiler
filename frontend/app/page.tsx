@@ -11,6 +11,7 @@ const VIEWS = [
   { href: "/learn", title: "Learning Paths", desc: "Prerequisite chains — 'what should I understand before X?'" },
   { href: "/rbac", title: "RBAC & Permissions", desc: "What permissions does a given manifest require?" },
   { href: "/search", title: "Search", desc: "Full-text search across every compiled node, with provenance." },
+  { href: "/docs", title: "Docs", desc: "The synthesized knowledge card for any node — readable documentation with sources." },
 ];
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
           <div><div className="stat">{s.api_objects}</div><div className="muted">API objects</div></div>
           <div><div className="stat">{s.edges}</div><div className="muted">relationships</div></div>
           <div><div className="stat">{s.build_seconds}s</div><div className="muted">build time</div></div>
+          <div><div className="stat">{graph?.nodes.filter((n) => n.derived_by.startsWith("ai:")).length ?? 0}</div><div className="muted">AI-synthesized</div></div>
         </div>
       )}
 

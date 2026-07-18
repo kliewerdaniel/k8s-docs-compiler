@@ -72,6 +72,40 @@ python -m compiler.cli validate out/dataset.json
 python -m compiler.cli diff out/v1.33/dataset.json out/v1.34/dataset.json
 ```
 
+## AI synthesis pass (compile-time, opt-in)
+
+The deterministic build extracts a *graph of fragments* (titles, short summaries,
+extracted quotes). To turn that scaffolding into a **readable knowledge resource**,
+opt into the AI synthesis pass. It runs **once, at compile time**, on a local
+inference endpoint — never at runtime.
+
+```bash
+python -m compiler.cli compile \
+    --docs-root kubernetes/website/content/en/docs \
+    --swagger swagger.json --version v1.34 --out out \
+    --ai --ai-passes synthesis \
+    --ai-url http://localhost:11434 --ai-model llama3.1:8b
+```
+
+What it does:
+- For each glossary / API-object / page node that lacks a substantial body, it
+  sends the node's **extracted source quotes** to the local model and asks for a
+  structured knowledge card (overview, why-it-matters, key facts, pitfalls, related).
+- The card is stored as the node `body` (rendered in the frontend **Docs** view) and
+  a one-line `summary`. Nodes that already have rich deterministic content are skipped.
+- Synthesis is **batched** (N cards per model call) and **cached by content hash**, so
+  re-runs are free and reproducible.
+- Every synthesized fact is tagged `derived_by="ai:<model>"` with `confidence < 1.0`
+  and remains tied to its source provenance — it explains the docs, it does not invent
+  them.
+
+Pluggable passes: `synthesis`, `prerequisites`, `clusters` — toggle individually
+(`--ai-passes synthesis,prerequisites`) or run all (`--ai`). Different use cases add or
+remove LLM calls without touching the deterministic core. The endpoint is
+endpoint-agnostic: OpenAI-compatible (`/v1/chat/completions`, e.g. llama.cpp on :8080)
+or Ollama (`/api/generate`). A thinking model that emits only `reasoning_content` is
+handled via a fallback.
+
 ## CLI
 
 | Command | Description |

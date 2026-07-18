@@ -1,0 +1,1 @@
+{"cards": [{"id": "gloss:pod", "overview": "A Pod is the smallest deployable unit in Kubernetes.", "why_it_matters": "Pods are how your containers actually run.", "key_facts": ["Wraps one or more containers", "Shares storage/network"], "pitfalls": ["Don't run one-container-per-Pod blindly"], "related": ["Deployment", "ReplicaSet"]}]}

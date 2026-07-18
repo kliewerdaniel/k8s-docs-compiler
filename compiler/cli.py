@@ -40,7 +40,9 @@ def cmd_compile(args) -> int:
     cfg = CompilerConfig.load(args.config, overrides={
         "docs_root": args.docs_root, "swagger_path": args.swagger,
         "version": args.version, "out_dir": args.out,
-        "enable_ai": args.ai, "log_level": args.log_level,
+        "enable_ai": args.ai, "ai_passes": args.ai_passes,
+        "ai_url": args.ai_url, "ai_model": args.ai_model,
+        "log_level": args.log_level,
     })
     c = Compiler(cfg)
     g = c.compile()
@@ -56,6 +58,8 @@ def cmd_demo(args) -> int:
         "version": "fixture", "out_dir": args.out,
         "emit_gexf": True, "log_level": args.log_level,
         "swagger_path": swagger if os.path.exists(swagger) else None,
+        "enable_ai": args.ai, "ai_passes": args.ai_passes,
+        "ai_url": args.ai_url, "ai_model": args.ai_model,
     })
     c = Compiler(cfg)
     g = c.compile_fixtures(fx, swagger_path=swagger if os.path.exists(swagger) else None)
@@ -320,13 +324,28 @@ def build_parser() -> argparse.ArgumentParser:
     c.add_argument("--version", default="main")
     c.add_argument("--out", default="out")
     c.add_argument("--config", default=None)
-    c.add_argument("--ai", action="store_true", help="Enable optional AI passes")
+    c.add_argument("--ai", action="store_true",
+                   help="Enable optional AI passes (synthesis etc.)")
+    c.add_argument("--ai-passes", dest="ai_passes", default=None,
+                   help="Comma list of passes: synthesis,prerequisites,clusters "
+                        "(default: all). Use with --ai.")
+    c.add_argument("--ai-url", dest="ai_url", default=None,
+                   help="Inference endpoint (OpenAI-compat or Ollama). "
+                        "Default http://localhost:11434 (Ollama llama3.1:8b). "
+                        "Set to http://localhost:8080 for the 35B thinking model.")
+    c.add_argument("--ai-model", dest="ai_model", default=None,
+                   help="Model name for the inference endpoint.")
     c.add_argument("--log-level", default="INFO")
     c.set_defaults(func=cmd_compile)
 
     d = sub.add_parser("demo", help="Compile bundled fixtures (offline)")
     d.add_argument("--out", default="out")
     d.add_argument("--config", default=None)
+    d.add_argument("--ai", action="store_true", help="Enable optional AI passes")
+    d.add_argument("--ai-passes", dest="ai_passes", default=None,
+                   help="Comma list of passes: synthesis,prerequisites,clusters")
+    d.add_argument("--ai-url", dest="ai_url", default=None)
+    d.add_argument("--ai-model", dest="ai_model", default=None)
     d.add_argument("--log-level", default="INFO")
     d.set_defaults(func=cmd_demo)
 

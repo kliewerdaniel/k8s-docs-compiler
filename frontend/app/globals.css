@@ -56,3 +56,7 @@ button:hover { background: #1f6feb15; }
 .prov { font-size: 11px; color: var(--muted); margin-top: 6px; }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .warning { background: #9e6a0322; border: 1px solid #9e6a03; color: #e3b341; border-radius: 8px; padding: 10px 12px; }
+
+.body ul { margin: 6px 0; padding-left: 18px; }
+.body p { margin: 6px 0; line-height: 1.45; }
+.body strong { color: var(--fg); }

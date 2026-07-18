@@ -17,6 +17,7 @@ const NAV = [
   { href: "/learn", label: "Learning Paths" },
   { href: "/rbac", label: "RBAC & Permissions" },
   { href: "/search", label: "Search" },
+  { href: "/docs", label: "Docs" },
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {

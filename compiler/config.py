@@ -39,9 +39,10 @@ class CompilerConfig:
 
     # Optional AI-assisted pass (OFF by default; deterministic always wins)
     enable_ai: bool = False
-    ai_url: str = "http://localhost:11434"   # Ollama default
+    ai_passes: Optional[str] = None       # comma list: synthesis,prerequisites,clusters
+    ai_url: str = "http://localhost:11434"   # Ollama default (reliable local JSON)
     ai_model: str = "llama3.1:8b"
-    ai_timeout_s: float = 30.0
+    ai_timeout_s: float = 60.0
 
     # Logging
     log_level: str = "INFO"

@@ -27,8 +27,10 @@ export default function Search() {
         <div>
           <h2>Results ({hits.length})</h2>
           {hits.map((n) => (
-            <div key={n.id} onClick={() => setSel(n.id)} style={{ cursor: "pointer" }}>
-              <NodeCard n={n} />
+            <div key={n.id}>
+              <a href={`/docs?id=${encodeURIComponent(n.id)}`} style={{ textDecoration: "none", color: "inherit" }}>
+                <NodeCard n={n} />
+              </a>
             </div>
           ))}
           {q && !hits.length ? <p className="muted">No matches.</p> : null}
