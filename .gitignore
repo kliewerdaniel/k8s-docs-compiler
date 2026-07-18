@@ -20,3 +20,5 @@ out_test/
 out_test2/
 out_test_ai/
 .k8s_cc_cache/
+.vercel
+.env*
