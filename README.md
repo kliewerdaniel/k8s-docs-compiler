@@ -10,6 +10,8 @@ are deployable **without any backend inference**.
 
 No chatbot. A compiler for knowledge.
 
+**Live demo:** https://k8s-docs-compiler.vercel.app/
+
 ---
 
 ## Why
