@@ -14,3 +14,9 @@ frontend/node_modules/
 frontend/.next/
 frontend/out/
 frontend/public/dataset.json
+
+# Test / cache artifacts
+out_test/
+out_test2/
+out_test_ai/
+.k8s_cc_cache/
