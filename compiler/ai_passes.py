@@ -391,6 +391,8 @@ def run_ai_passes(g: KnowledgeGraph, cfg: CompilerConfig,
         fn = PASS_REGISTRY[name]
         if name == "prerequisites":
             fn(g, client, cfg.cache_dir, glossary_ids)
+        elif name == "synthesis":
+            fn(g, client, cfg.cache_dir, batch_size=cfg.ai_batch_size)
         else:
             fn(g, client, cfg.cache_dir)
     logger.info("AI passes complete")

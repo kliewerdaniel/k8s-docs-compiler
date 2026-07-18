@@ -42,6 +42,7 @@ def cmd_compile(args) -> int:
         "version": args.version, "out_dir": args.out,
         "enable_ai": args.ai, "ai_passes": args.ai_passes,
         "ai_url": args.ai_url, "ai_model": args.ai_model,
+        "ai_timeout_s": args.ai_timeout, "ai_batch_size": args.ai_batch_size,
         "log_level": args.log_level,
     })
     c = Compiler(cfg)
@@ -335,6 +336,10 @@ def build_parser() -> argparse.ArgumentParser:
                         "Set to http://localhost:8080 for the 35B thinking model.")
     c.add_argument("--ai-model", dest="ai_model", default=None,
                    help="Model name for the inference endpoint.")
+    c.add_argument("--ai-timeout", dest="ai_timeout", type=int, default=None,
+                   help="Per-call inference timeout in seconds (default 180).")
+    c.add_argument("--ai-batch-size", dest="ai_batch_size", type=int, default=None,
+                   help="Nodes synthesized per model call (default 6).")
     c.add_argument("--log-level", default="INFO")
     c.set_defaults(func=cmd_compile)
 

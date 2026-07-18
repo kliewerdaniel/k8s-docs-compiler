@@ -40,9 +40,10 @@ class CompilerConfig:
     # Optional AI-assisted pass (OFF by default; deterministic always wins)
     enable_ai: bool = False
     ai_passes: Optional[str] = None       # comma list: synthesis,prerequisites,clusters
-    ai_url: str = "http://localhost:11434"   # Ollama default (reliable local JSON)
+    ai_url: str = "http://localhost:11434"   # Ollama default (reliable JSON)
     ai_model: str = "llama3.1:8b"
-    ai_timeout_s: float = 60.0
+    ai_timeout_s: int = 180                  # per-call timeout (raise for slow local models)
+    ai_batch_size: int = 6                   # nodes synthesized per model call
 
     # Logging
     log_level: str = "INFO"
