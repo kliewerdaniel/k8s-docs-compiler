@@ -40,3 +40,8 @@ Corpus version: v1.34. Nodes: 8198. Relationships: 10754. AI-synthesized documen
 ## Note on provenance
 
 Nodes tagged `derived_by` starting with `ai:` were synthesized from source quotes at compile time (confidence < 1.0). All carry `provenance` pointing to the originating document. Prefer source quotes when available.
+
+## Related compiled-knowledge sites (same author, same compile-time-AI approach)
+
+- [Sovereign Knowledge Compiler Explorer](https://skce-explorer.vercel.app/llms.txt) — Sovereign AI concept corpus
+- [ChatGPT Compile](https://chatgpt-compile.vercel.app/llms.txt) — 2,489-conversation personal corpus
