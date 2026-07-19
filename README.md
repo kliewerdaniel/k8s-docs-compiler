@@ -11,6 +11,7 @@ are deployable **without any backend inference**.
 No chatbot. A compiler for knowledge.
 
 **Live demo:** https://k8s-docs-compiler.vercel.app/
+**Writeup:** [Compile-Time AI in Practice: How We Built a Kubernetes Knowledge Compiler](https://www.danielkliewer.com/blog/2026-07-18-compile-time-ai-k8s)
 
 ---
 
