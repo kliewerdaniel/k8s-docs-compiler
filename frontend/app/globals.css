@@ -60,3 +60,10 @@ button:hover { background: #1f6feb15; }
 .body ul { margin: 6px 0; padding-left: 18px; }
 .body p { margin: 6px 0; line-height: 1.45; }
 .body strong { color: var(--fg); }
+
+.startpath { line-height: 1.9; padding-left: 20px; }
+.linkbtn { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 14px; padding: 0; }
+.linkbtn:hover { text-decoration: underline; }
+.linkbtn.active { color: var(--fg); font-weight: 700; }
+.tag.btn { cursor: pointer; border: 1px solid var(--border); background: var(--bg); }
+.tag.btn:hover { border-color: var(--accent); color: var(--accent); }

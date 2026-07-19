@@ -80,4 +80,36 @@ export class KnowledgeStore {
   controlPlane(): NodeT[] {
     return this.graph.nodes.filter((n) => n.type === "controller");
   }
+
+  // Learning path: nodes that are prerequisites of `id` (one hop back via
+  // prerequisite_of edges), then the node itself.
+  prerequisitesOf(id: string): NodeT[] {
+    const ids = new Set<string>();
+    for (const e of this.in(id)) {
+      if (e.type === "prerequisite_of") ids.add(e.from_id);
+    }
+    return [...ids].map((i) => this.byId.get(i)).filter(Boolean) as NodeT[];
+  }
+
+  // Learning path: nodes for which `id` is a prerequisite (what it unlocks).
+  unlocks(id: string): NodeT[] {
+    const ids = new Set<string>();
+    for (const e of this.out(id)) {
+      if (e.type === "prerequisite_of") ids.add(e.to_id);
+    }
+    return [...ids].map((i) => this.byId.get(i)).filter(Boolean) as NodeT[];
+  }
+
+  // Build an ordered "Start Here" onboarding path: take the glossary nodes that
+  // have the most prerequisites (i.e. are foundational), dedupe, and order by
+  // prerequisite depth (fewest prerequisites first = learn first).
+  startHere(limit = 12): NodeT[] {
+    const prereqCount = (n: NodeT) => this.prerequisitesOf(n.id).length;
+    const candidates = this.graph.nodes.filter(
+      (n) => n.type === "glossary" && this.unlocks(n.id).length > 0
+    );
+    return candidates
+      .sort((a, b) => prereqCount(a) - prereqCount(b) || a.title.localeCompare(b.title))
+      .slice(0, limit);
+  }
 }

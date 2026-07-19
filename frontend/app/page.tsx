@@ -12,6 +12,7 @@ const VIEWS = [
   { href: "/rbac", title: "RBAC & Permissions", desc: "What permissions does a given manifest require?" },
   { href: "/search", title: "Search", desc: "Full-text search across every compiled node, with provenance." },
   { href: "/docs", title: "Docs", desc: "The synthesized knowledge card for any node — readable documentation with sources." },
+  { href: "/start", title: "Start Here", desc: "A guided, prerequisite-ordered onboarding path through Kubernetes." },
 ];
 
 export default function Home() {
