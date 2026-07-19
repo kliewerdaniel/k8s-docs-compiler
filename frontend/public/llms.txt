@@ -1,45 +1,42 @@
 # Kubernetes Knowledge Compiler
 
-> A compiled, versioned knowledge graph of Kubernetes, built from the official documentation and OpenAPI spec at **compile time**. Every fact is traceable to its source. No runtime LLM is involved in serving this site — it is a static, queryable knowledge resource.
+> A compiled, versioned knowledge graph of Kubernetes, built from the official documentation and OpenAPI spec at **compile time**. Every fact is traceable to its source. No runtime LLM is involved in serving this site — it is a static, queryable knowledge resource. The entire site is server-rendered: every node has its own static URL and is readable by any agent that can issue a plain HTTP GET, with no JavaScript required.
 
 Corpus version: v1.34. Nodes: 8198. Relationships: 10754. AI-synthesized documentation: 1210.
 
 ## How to use this resource
 
 - The full structured knowledge base is `dataset.json` (nodes + typed edges + provenance). Fetch it and filter by `id` / `type`.
-- For lighter, human-readable reads, use the per-type `llms-*.txt` dumps below (one concept per block).
-- `knowledge.jsonl` is the same data, one node per line.
-- To read a single node's synthesized documentation, open `/docs?id=<node_id>` (e.g. `/docs?id=gloss:pod`).
-- Node ids look like `gloss:<term>`, `api:<Object>`, `page:<slug>`, `concept:<heading>`.
+- Every node is also a static HTML page under its section: `/docs/<slug>/` (glossary, pages, concepts), `/api/<slug>/` (API objects + paths), `/rbac/<slug>/` (roles), `/relationships/<slug>/` (control-plane components). Slugs are the node id with `:`/`/`/` `/`{`/`}` remapped to `-`.
+- The section index pages list every node as a crawlable link: `/docs/`, `/api/`, `/rbac/`, `/relationships/`, `/learn/`.
+- `knowledge.jsonl` is the same data, one node per line. `index.json` is a lightweight title/summary/tag index.
+- `sitemap.xml` enumerates every static page so a crawler/agent can discover the full corpus without guessing URLs or running JS.
+- `robots.txt` allows all crawlers on all knowledge routes.
 
 ## Machine-readable resources
 
 - [dataset.json](https://k8s-docs-compiler.vercel.app/dataset.json) — full knowledge graph (JSON)
 - [knowledge.jsonl](https://k8s-docs-compiler.vercel.app/knowledge.jsonl) — same data, one node per line
 - [index.json](https://k8s-docs-compiler.vercel.app/index.json) — lightweight title/summary/tag index
-- [knowledge.db](https://k8s-docs-compiler.vercel.app/knowledge.db) — SQLite (download + query locally)
-- [knowledge.gexf](https://k8s-docs-compiler.vercel.app/knowledge.gexf) — graph format (Gephi/cytoscape)
+- [sitemap.xml](https://k8s-docs-compiler.vercel.app/sitemap.xml) — every static page
+- [robots.txt](https://k8s-docs-compiler.vercel.app/robots.txt) — crawler policy (allow all)
 
-### Per-type plain-text dumps
-- [llms-glossary.txt](https://k8s-docs-compiler.vercel.app/llms-glossary.txt) — glossary terms
-- [llms-api-objects.txt](https://k8s-docs-compiler.vercel.app/llms-api-objects.txt) — API objects
-- [llms-pages.txt](https://k8s-docs-compiler.vercel.app/llms-pages.txt) — documentation pages
-- [llms-rbac.txt](https://k8s-docs-compiler.vercel.app/llms-rbac.txt) — RBAC roles
-- [llms-control-plane.txt](https://k8s-docs-compiler.vercel.app/llms-control-plane.txt) — control-plane components
-- [llms-concepts-sample.txt](https://k8s-docs-compiler.vercel.app/llms-concepts-sample.txt) — concept headings (sample)
+## Section index pages (every node linked, server-rendered)
 
-## Interactive views
+- [/docs/](https://k8s-docs-compiler.vercel.app/docs/) — glossary terms, documentation pages, concepts
+- [/api/](https://k8s-docs-compiler.vercel.app/api/) — API objects and API paths
+- [/rbac/](https://k8s-docs-compiler.vercel.app/rbac/) — RBAC roles and required-permission edges
+- [/relationships/](https://k8s-docs-compiler.vercel.app/relationships/) — ownership chains and control plane
+- [/learn/](https://k8s-docs-compiler.vercel.app/learn/) — prerequisite chains (learning paths)
+- [/start/](https://k8s-docs-compiler.vercel.app/start/) — guided onboarding path
+
+## Interactive (progressive enhancement, content also in HTML)
 
 - [/](https://k8s-docs-compiler.vercel.app/) — Home — stats + view index
-- [/graph](https://k8s-docs-compiler.vercel.app/graph) — Concept Graph — force-directed visualization of the knowledge graph
-- [/explore](https://k8s-docs-compiler.vercel.app/explore) — Decision Explorer — walk the graph to answer operational questions
-- [/api](https://k8s-docs-compiler.vercel.app/api) — API Explorer — 628 API objects and 564 API paths from the OpenAPI spec
-- [/relationships](https://k8s-docs-compiler.vercel.app/relationships) — Resource Relationships — ownership chains and dependencies
-- [/learn](https://k8s-docs-compiler.vercel.app/learn) — Learning Paths — prerequisite chains
-- [/rbac](https://k8s-docs-compiler.vercel.app/rbac) — RBAC & Permissions — what a manifest requires
-- [/search](https://k8s-docs-compiler.vercel.app/search) — Search — full-text across every node, with provenance
-- [/docs](https://k8s-docs-compiler.vercel.app/docs) — Docs — the synthesized knowledge card for any node (?id=<node_id>)
-- [/start](https://k8s-docs-compiler.vercel.app/start) — Start Here — a prerequisite-ordered onboarding path
+- [/graph](https://k8s-docs-compiler.vercel.app/graph) — Concept Graph — force-directed visualization + server-rendered node/edge table
+- [/explore](https://k8s-docs-compiler.vercel.app/explore) — Decision Explorer — kubectl apply flow + RBAC, plus interactive traversal
+- [/search](https://k8s-docs-compiler.vercel.app/search) — Search — live full-text box + server-rendered node index
 
 ## Note on provenance
+
 Nodes tagged `derived_by` starting with `ai:` were synthesized from source quotes at compile time (confidence < 1.0). All carry `provenance` pointing to the originating document. Prefer source quotes when available.

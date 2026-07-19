@@ -1,47 +1,60 @@
-"use client";
+import Link from "next/link";
+import { rbacRoles, hrefFor } from "@/lib/knowledge.server";
 
-import { useMemo } from "react";
-import { useGraph } from "@/lib/useGraph";
+export const metadata = {
+  title: "RBAC & Permissions — k8s knowledge compiler",
+  description:
+    "Compiled from the RBAC reference: each resource maps to the verbs a Role/ClusterRole must grant.",
+};
 
-export default function Rbac() {
-  const { graph } = useGraph();
-  if (!graph) return <p className="muted">Loading…</p>;
-  const roles = graph.nodes.filter((n) => n.type === "role");
-  const requires = graph.edges.filter((e) => e.type === "requires");
+export default function RbacIndex() {
+  const roles = rbacRoles();
+  const requires = require("@/lib/knowledge.server")
+    .getGraph()
+    .edges.filter((e: any) => e.type === "requires");
 
   return (
-    <>
+    <article>
       <h1>RBAC &amp; Permissions</h1>
       <p className="muted">
-        Compiled from the RBAC reference: each resource maps to the verbs (permissions) a
-        Role/ClusterRole must grant. Directly answers “what permissions does this manifest
-        require?”
+        Compiled from the RBAC reference: each resource maps to the verbs
+        (permissions) a Role/ClusterRole must grant. Directly answers &ldquo;what
+        permissions does this manifest require?&rdquo;
       </p>
-      <div className="grid2">
-        <div>
-          <h2>Roles / permissions ({roles.length})</h2>
-          {roles.map((r) => {
-            const m = r.meta as Record<string, unknown>;
-            const verbs = (m?.verbs as string[]) || [];
-            const grp = (m?.apiGroup as string) || "core";
-            return (
-              <div key={r.id} className="card">
-                <strong>{r.title.replace("permissions:", "")}</strong>{" "}
-                <span className="mono">group={grp}</span>
-                <div className="mono" style={{ marginTop: 4 }}>{verbs.join(", ")}</div>
+
+      <h2>Roles / permissions ({roles.length})</h2>
+      <ul className="idx">
+        {roles.map((r) => {
+          const m = r.meta as Record<string, unknown>;
+          const verbs = (m?.verbs as string[]) || [];
+          const grp = (m?.apiGroup as string) || "core";
+          const href = hrefFor(r.id);
+          return (
+            <li key={r.id}>
+              {href ? (
+                <Link href={href}>{r.title.replace("permissions:", "")}</Link>
+              ) : (
+                <span>{r.title.replace("permissions:", "")}</span>
+              )}{" "}
+              <span className="mono">group={grp}</span>
+              <div className="mono" style={{ marginTop: 2 }}>
+                {verbs.join(", ")}
               </div>
-            );
-          })}
-        </div>
-        <div>
-          <h2>Manifest → required permission edges ({requires.length})</h2>
-          {requires.slice(0, 60).map((e, i) => (
-            <div key={i} className="edge">
-              <span className="etype">requires</span> {e.from_id.replace("role:", "")} → {e.to_id.replace("api:", "")}
-            </div>
-          ))}
-        </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      <h2>Manifest → required permission edges ({requires.length})</h2>
+      <p className="muted">A sample of the compiled requires edges:</p>
+      <div>
+        {requires.slice(0, 80).map((e: any, i: number) => (
+          <div key={i} className="edge">
+            <span className="etype">requires</span> {e.from_id.replace("role:", "")} →{" "}
+            {e.to_id.replace("api:", "")}
+          </div>
+        ))}
       </div>
-    </>
+    </article>
   );
 }

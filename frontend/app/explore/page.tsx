@@ -1,8 +1,18 @@
-"use client";
+import Link from "next/link";
+import {
+  getGraph,
+  rbacRoles,
+  hrefFor,
+  titleFor,
+  slugify,
+} from "@/lib/knowledge.server";
+import ExploreClient from "./ExploreClient";
 
-import { useMemo, useState } from "react";
-import { useGraph } from "@/lib/useGraph";
-import { KnowledgeStore } from "@/lib/store";
+export const metadata = {
+  title: "Decision Explorer — k8s knowledge compiler",
+  description:
+    "Walk the compiled graph to answer operational questions. Server-rendered seed answers plus an interactive explorer.",
+};
 
 const SEED = [
   { q: "Expose a Deployment with an Ingress", term: "deployment" },
@@ -12,78 +22,70 @@ const SEED = [
 ];
 
 export default function DecisionExplorer() {
-  const { graph } = useGraph();
-  const [picked, setPicked] = useState<string | null>(null);
-  const store = useMemo(() => (graph ? new KnowledgeStore(graph) : null), [graph]);
-  if (!graph || !store) return <p className="muted">Loading…</p>;
-
-  const node = picked ? store.byId.get(picked) : null;
-  const related = picked ? store.relatedTo(picked, 30) : [];
-  const flow = store.kubectlFlow();
-  const rbac = store.rbacRoles();
+  const g = getGraph();
+  const flow = g.nodes.filter((n) => n.id.startsWith("flow:")).sort((a, b) => a.id.localeCompare(b.id));
+  const rbac = rbacRoles().slice(0, 20);
 
   return (
-    <>
+    <article>
       <h1>Decision Explorer</h1>
       <p className="muted">
-        Walk the compiled graph to answer operational questions. Try a seed question, or
-        inspect any node.
+        Walk the compiled graph to answer operational questions. This page is
+        server-rendered: the kubectl apply flow and the RBAC summary are in the HTML
+        with JS disabled. The interactive explorer below (progressive enhancement)
+        lets you traverse the graph live.
       </p>
-      <div className="row">
-        {SEED.map((s) => (
-          <button key={s.q} onClick={() => {
-            const m = graph.nodes.find((n) => n.title.toLowerCase().includes(s.term) || n.id.includes(s.term));
-            setPicked(m?.id ?? null);
-          }}>{s.q}</button>
-        ))}
-      </div>
 
-      <div className="grid2" style={{ marginTop: 14 }}>
-        <div>
-          <h2>Selected</h2>
-          {node ? (
-            <div className="card">
-              <strong style={{ fontSize: 16 }}>{node.title}</strong> <span className="mono">[{node.type}]</span>
-              {node.summary ? <div className="muted" style={{ marginTop: 4 }}>{node.summary}</div> : null}
-            </div>
-          ) : <p className="muted">Pick a seed above.</p>}
+      <h2>Seed questions</h2>
+      <ul className="idx">
+        {SEED.map((s) => {
+          const m = g.nodes.find(
+            (n) => n.title.toLowerCase().includes(s.term) || n.id.includes(s.term)
+          );
+          const href = m ? hrefFor(m.id) || `/docs/${slugify(m.id)}/` : null;
+          return (
+            <li key={s.q}>
+              {href ? <Link href={href}>{s.q}</Link> : <span>{s.q}</span>}
+            </li>
+          );
+        })}
+      </ul>
 
-          {flow.length ? (
-            <>
-              <h2>Internal flow: kubectl apply</h2>
-              <ol>
-                {flow.map((f) => (
-                  <li key={f.id}><strong>{f.title.replace("kubectl apply: ", "")}</strong> — {f.summary}</li>
-                ))}
-              </ol>
-            </>
-          ) : null}
-        </div>
-        <div>
-          <h2>Related concepts (graph traversal)</h2>
-          {related.map((e, i) => {
-            const other = e.from_id === picked ? e.to_id : e.from_id;
-            const o = store.byId.get(other);
-            return (
-              <div key={i} className="edge" style={{ cursor: "pointer" }} onClick={() => setPicked(other)}>
-                <span className="etype">{e.type}</span> → <strong>{o?.title ?? other}</strong>
-                {e.label ? <span className="muted"> — {e.label}</span> : null}
-              </div>
-            );
-          })}
-          {rbac.length ? (
-            <>
-              <h2>RBAC: what each resource requires</h2>
-              {rbac.slice(0, 10).map((r) => (
-                <div key={r.id} className="edge">
-                  <strong>{r.title.replace("permissions:", "")}</strong>{" "}
-                  <span className="mono">group={(r.meta?.apiGroup as string) || "core"}</span>
-                </div>
-              ))}
-            </>
-          ) : null}
-        </div>
-      </div>
-    </>
+      {flow.length ? (
+        <>
+          <h2>Internal flow: kubectl apply</h2>
+          <ol>
+            {flow.map((f) => (
+              <li key={f.id}>
+                <strong>{f.title.replace("kubectl apply: ", "")}</strong> —{" "}
+                {f.summary}
+              </li>
+            ))}
+          </ol>
+        </>
+      ) : null}
+
+      {rbac.length ? (
+        <>
+          <h2>RBAC: what each resource requires</h2>
+          <ul className="idx">
+            {rbac.map((r) => {
+              const href = hrefFor(r.id);
+              const grp = (r.meta as Record<string, unknown>)?.apiGroup as string || "core";
+              return (
+                <li key={r.id}>
+                  {href ? <Link href={href}>{r.title.replace("permissions:", "")}</Link> : r.title.replace("permissions:", "")}{" "}
+                  <span className="mono">group={grp}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      ) : null}
+
+      <h2>Interactive explorer</h2>
+      <p className="muted">Pick a node to traverse its relationships live (requires JS).</p>
+      <ExploreClient />
+    </article>
   );
 }

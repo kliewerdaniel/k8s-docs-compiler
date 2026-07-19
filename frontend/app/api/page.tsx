@@ -1,79 +1,85 @@
-"use client";
+import Link from "next/link";
+import { getNodesByType, slugify, hrefFor } from "@/lib/knowledge.server";
 
-import { useMemo, useState } from "react";
-import { useGraph } from "@/lib/useGraph";
-import { KnowledgeStore } from "@/lib/store";
+export const metadata = {
+  title: "API Explorer — k8s knowledge compiler",
+  description:
+    "Every Kubernetes API object and API path extracted from the OpenAPI specification, cross-linked to the docs that explain them.",
+};
 
-export default function ApiExplorer() {
-  const { graph } = useGraph();
-  const [q, setQ] = useState("");
-  const [group, setGroup] = useState("all");
-  const store = useMemo(() => (graph ? new KnowledgeStore(graph) : null), [graph]);
-  if (!graph || !store) return <p className="muted">Loading…</p>;
-  const objs = graph.nodes.filter((n) => n.type === "api_object");
-  const groups = ["all", ...Array.from(new Set(objs.map((o) => (o.meta?.group as string) || "core")))];
-  const filtered = objs
-    .filter((o) => group === "all" || (o.meta?.group as string) === group)
-    .filter((o) => !q || o.title.toLowerCase().includes(q.toLowerCase()))
-    .sort((a, b) => a.title.localeCompare(b.title));
+export default function ApiIndex() {
+  const objects = getNodesByType("api_object").sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+  const paths = getNodesByType("api_path").sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
 
-  const selected = filtered.find((o) => o.title.toLowerCase() === q.toLowerCase());
+  const groups = Array.from(
+    new Set(objects.map((o) => (o.meta?.group as string) || "core"))
+  ).sort();
 
   return (
-    <>
+    <article>
       <h1>API Explorer</h1>
       <p className="muted">
-        {objs.length} API objects and {graph.nodes.filter((n) => n.type === "api_path").length} API paths,
-        extracted from the OpenAPI specification. Cross-linked to the docs that explain them.
+        {objects.length} API objects and {paths.length} API paths, extracted from the
+        OpenAPI specification and cross-linked to the docs that explain them. Each
+        object has a static page with its fields and related docs.
       </p>
-      <div className="row" style={{ marginBottom: 10 }}>
-        <input placeholder="filter by Kind…" value={q} onChange={(e) => setQ(e.target.value)} />
-        <select value={group} onChange={(e) => setGroup(e.target.value)}>
-          {groups.map((g) => (
-            <option key={g} value={g}>{g}</option>
-          ))}
-        </select>
-      </div>
-      <div className="grid2">
-        <div style={{ maxHeight: "70vh", overflow: "auto" }}>
-          {filtered.map((o) => (
-            <div key={o.id} className="card" onClick={() => setQ(o.title)} style={{ cursor: "pointer" }}>
-              <strong>{o.title}</strong> <span className="mono">{(o.meta?.group as string) || "core"}/{o.meta?.version as string}</span>
-              {o.summary ? <div className="muted" style={{ fontSize: 12 }}>{o.summary.slice(0, 120)}</div> : null}
-            </div>
-          ))}
-        </div>
-        <div>
-          <h2>Object detail</h2>
-          {selected ? (
-            <div className="card">
-              <strong style={{ fontSize: 16 }}>{selected.title}</strong>
-              <div className="muted">{selected.summary}</div>
-              <div style={{ marginTop: 6 }}>
-                <span className="tag">group: {(selected.meta?.group as string) || "core"}</span>
-                <span className="tag">version: {selected.meta?.version as string}</span>
-                <span className="tag">fields: {selected.meta?.field_count as number}</span>
-              </div>
-              {Array.isArray(selected.meta?.fields) ? (
-                <>
-                  <h2>Fields</h2>
-                  {(selected.meta?.fields as string[]).map((f) => (
-                    <div key={f} className="mono">{f}</div>
-                  ))}
-                </>
-              ) : null}
-              <h2>Related</h2>
-              {store.neighbors(selected.id, "related_to").map((e, i) => (
-                <div key={i} className="edge">
-                  <span className="etype">related_to</span> → <strong>{store.byId.get(e.to_id)?.title ?? e.to_id}</strong>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="muted">Select an object.</p>
-          )}
-        </div>
-      </div>
-    </>
+      <p>
+        <Link href="/search">Search the graph →</Link>
+      </p>
+
+      <h2>API objects by group</h2>
+      {groups.map((grp) => {
+        const objs = objects.filter(
+          (o) => (o.meta?.group as string) || "core" === grp
+        );
+        return (
+          <section key={grp} style={{ marginTop: 12 }}>
+            <h3>
+              {grp} ({objs.length})
+            </h3>
+            <ul className="idx">
+              {objs.map((o) => {
+                const href = hrefFor(o.id);
+                const ver = (o.meta?.version as string) || "";
+                return (
+                  <li key={o.id}>
+                    {href ? (
+                      <Link href={href}>
+                        {o.title}{" "}
+                        <span className="mono">
+                          {grp}/{ver}
+                        </span>
+                      </Link>
+                    ) : (
+                      <span>{o.title}</span>
+                    )}
+                    {o.summary ? (
+                      <span className="muted"> — {o.summary.slice(0, 120)}</span>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        );
+      })}
+
+      <h2>API paths ({paths.length})</h2>
+      <ul className="idx">
+        {paths.map((p) => {
+          const href = hrefFor(p.id);
+          return (
+            <li key={p.id}>
+              {href ? <Link href={href}>{p.title}</Link> : <span>{p.title}</span>}
+              {p.summary ? <span className="muted"> — {p.summary}</span> : null}
+            </li>
+          );
+        })}
+      </ul>
+    </article>
   );
 }

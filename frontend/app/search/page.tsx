@@ -1,53 +1,48 @@
-"use client";
+import Link from "next/link";
+import { getGraph, hrefFor, slugify } from "@/lib/knowledge.server";
+import SearchClient from "./SearchClient";
 
-import { useState } from "react";
-import { useGraph } from "@/lib/useGraph";
-import { KnowledgeStore } from "@/lib/store";
-import { NodeCard } from "@/lib/components";
+export const metadata = {
+  title: "Search — k8s knowledge compiler",
+  description:
+    "Full-text search across every compiled node, with provenance. The full index is also reachable as flat static pages under /docs, /api, /rbac, /relationships.",
+};
 
-export default function Search() {
-  const { graph } = useGraph();
-  const [q, setQ] = useState("");
-  const [sel, setSel] = useState<string | null>(null);
-  if (!graph) return <p className="muted">Loading…</p>;
-  const store = new KnowledgeStore(graph);
-  const hits = q ? store.search(q, 50) : [];
-  const selected = sel ? store.byId.get(sel) : null;
+export default function SearchPage() {
+  const g = getGraph();
+  const sample = g.nodes.slice(0, 60);
+
   return (
-    <>
+    <article>
       <h1>Search</h1>
-      <p className="muted">Full-text search across {graph.nodes.length} compiled nodes. No LLM — instant, deterministic.</p>
-      <input
-        style={{ width: "100%" }}
-        placeholder="e.g. Ingress, RBAC, Pod lifecycle, Deployment strategy"
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-      />
-      <div className="grid2" style={{ marginTop: 14 }}>
-        <div>
-          <h2>Results ({hits.length})</h2>
-          {hits.map((n) => (
-            <div key={n.id}>
-              <a href={`/docs?id=${encodeURIComponent(n.id)}`} style={{ textDecoration: "none", color: "inherit" }}>
-                <NodeCard n={n} />
-              </a>
-            </div>
-          ))}
-          {q && !hits.length ? <p className="muted">No matches.</p> : null}
-        </div>
-        <div>
-          <h2>Detail</h2>
-          {selected ? (
-            <div className="card">
-              <strong style={{ fontSize: 16 }}>{selected.title}</strong> <span className="mono">[{selected.type}]</span>
-              {selected.summary ? <div className="muted" style={{ marginTop: 4 }}>{selected.summary}</div> : null}
-              {selected.body ? <pre className="mono" style={{ whiteSpace: "pre-wrap", maxHeight: 320, overflow: "auto" }}>{selected.body.slice(0, 1500)}</pre> : null}
-            </div>
-          ) : (
-            <p className="muted">Pick a result to inspect.</p>
-          )}
-        </div>
-      </div>
-    </>
+      <p className="muted">
+        Full-text search across {g.nodes.length} compiled nodes. No LLM — instant,
+        deterministic. Type a term for live results (requires JS). The full corpus is
+        also reachable as flat static pages — every node has its own URL under{" "}
+        <Link href="/docs/">/docs/</Link>, <Link href="/api/">/api/</Link>,{" "}
+        <Link href="/rbac/">/rbac/</Link>, and <Link href="/relationships/">/relationships/</Link>.
+      </p>
+
+      <SearchClient />
+
+      <h2>Browse the index (no JS required)</h2>
+      <p className="muted">A sample of all compiled nodes — each links to its static page:</p>
+      <ul className="idx">
+        {sample.map((n) => {
+          const href = hrefFor(n.id) || `/docs/${slugify(n.id)}/`;
+          return (
+            <li key={n.id}>
+              <Link href={href}>{n.title}</Link>{" "}
+              <span className="mono">[{n.type}]</span>
+              {n.summary ? <span className="muted"> — {n.summary.slice(0, 90)}</span> : null}
+            </li>
+          );
+        })}
+      </ul>
+      <p className="muted">
+        …and {g.nodes.length - sample.length} more. See{" "}
+        <Link href="/sitemap.xml">sitemap.xml</Link> for every URL.
+      </p>
+    </article>
   );
 }

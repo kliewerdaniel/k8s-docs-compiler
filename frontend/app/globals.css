@@ -67,3 +67,14 @@ button:hover { background: #1f6feb15; }
 .linkbtn.active { color: var(--fg); font-weight: 700; }
 .tag.btn { cursor: pointer; border: 1px solid var(--border); background: var(--bg); }
 .tag.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Server-rendered index list + tables (crawlable content) */
+.idx { list-style: none; margin: 6px 0; padding: 0; }
+.idx li { padding: 5px 0; border-bottom: 1px solid var(--border); line-height: 1.55; }
+.breadcrumb { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+.breadcrumb a { color: var(--accent); }
+.graphtable { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 13px; }
+.graphtable th, .graphtable td { text-align: left; padding: 6px 9px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.graphtable th { color: var(--muted); text-transform: uppercase; font-size: 11px; letter-spacing: .5px; }
+.graphtable tr:hover td { background: #161b2255; }
+article ul { padding-left: 20px; }

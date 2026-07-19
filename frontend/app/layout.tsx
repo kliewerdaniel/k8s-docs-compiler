@@ -24,6 +24,9 @@ const NAV = [
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="alternate" type="application/json" href="/dataset.json" />
+      </head>
       <body>
         <header className="topbar">
           <span className="brand">⎈ k8s knowledge compiler</span>
