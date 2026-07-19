@@ -161,9 +161,200 @@ def _esc(s: str) -> str:
             .replace('"', "&quot;"))
 
 
+# ---------------------------------------------------------------------------
+# LLM-traversability artifacts
+#
+# A deployed static site is only useful to an LLM agent if it can (a) discover
+# what machine-readable resources exist and (b) fetch them in a form it can
+# ingest. We emit the standard `llms.txt` index plus human/LLM-readable text
+# dumps per node type (so an agent can pull only the slice it needs instead of
+# the 17 MB dataset.json) and a JSONL stream. All static — no runtime server.
+# ---------------------------------------------------------------------------
+
+# Sections of the site an LLM agent can use (mirrors the frontend routes).
+_LLM_VIEWS = [
+    ("/", "Home — stats + view index"),
+    ("/graph", "Concept Graph — force-directed visualization of the knowledge graph"),
+    ("/explore", "Decision Explorer — walk the graph to answer operational questions"),
+    ("/api", "API Explorer — 628 API objects and 564 API paths from the OpenAPI spec"),
+    ("/relationships", "Resource Relationships — ownership chains and dependencies"),
+    ("/learn", "Learning Paths — prerequisite chains"),
+    ("/rbac", "RBAC & Permissions — what a manifest requires"),
+    ("/search", "Search — full-text across every node, with provenance"),
+    ("/docs", "Docs — the synthesized knowledge card for any node (?id=<node_id>)"),
+    ("/start", "Start Here — a prerequisite-ordered onboarding path"),
+]
+
+
+def _node_text_block(n) -> str:
+    """One plain-text block per node, LLM-friendly."""
+    lines = [f"# {n.title}  [{n.type}]"]
+    if n.tags:
+        lines.append("tags: " + ", ".join(n.tags))
+    if n.summary:
+        lines.append("")
+        lines.append(n.summary)
+    if n.body:
+        lines.append("")
+        lines.append(n.body)
+    if n.provenance:
+        srcs = []
+        for p in n.provenance[:3]:
+            s = p.source
+            if p.url:
+                s += f" ({p.url})"
+            srcs.append(s)
+        if srcs:
+            lines.append("")
+            lines.append("sources: " + "; ".join(srcs))
+    return "\n".join(lines)
+
+
+def emit_llms_dumps(g: KnowledgeGraph, out_dir: str) -> dict:
+    """Per-type plain-text knowledge dumps + a JSONL stream.
+
+    Returns {filename: path}. An LLM agent reads llms.txt, then fetches only
+    the slice it needs (e.g. llms-glossary.txt) instead of dataset.json.
+    """
+    by_type: dict = {}
+    for n in g.nodes:
+        by_type.setdefault(n.type, []).append(n)
+
+    paths = {}
+    # JSONL — one node per line, easiest for LLM tools to stream/parse.
+    jsonl = os.path.join(out_dir, "knowledge.jsonl")
+    with open(jsonl, "w", encoding="utf-8") as f:
+        for n in g.nodes:
+            f.write(json.dumps({
+                "id": n.id, "type": n.type, "title": n.title,
+                "summary": n.summary, "tags": n.tags, "body": n.body,
+                "derived_by": n.derived_by, "confidence": n.confidence,
+            }, ensure_ascii=False) + "\n")
+    paths["jsonl"] = jsonl
+
+    # Per-type text dumps (skip the millions-of-heading `concept` nodes — too noisy;
+    # provide a capped sample instead).
+    dump_types = {
+        "glossary": "llms-glossary.txt",
+        "api_object": "llms-api-objects.txt",
+        "page": "llms-pages.txt",
+        "role": "llms-rbac.txt",
+        "controller": "llms-control-plane.txt",
+    }
+    for t, fname in dump_types.items():
+        nodes = by_type.get(t, [])
+        blocks = [_node_text_block(n) for n in nodes]
+        text = f"# Kubernetes knowledge — {t} ({len(nodes)} entries)\n\n" + "\n\n---\n\n".join(blocks)
+        p = os.path.join(out_dir, fname)
+        atomic_write(p, text)
+        paths[fname] = p
+
+    # concept: capped sample (heading-derived; high volume, low individual value)
+    concepts = by_type.get("concept", [])
+    sample = concepts[:400]
+    ctext = f"# Kubernetes knowledge — concept headings (sample of {len(sample)}/{len(concepts)})\n\n" + \
+            "\n\n---\n\n".join(_node_text_block(n) for n in sample)
+    cp = os.path.join(out_dir, "llms-concepts-sample.txt")
+    atomic_write(cp, ctext)
+    paths["llms-concepts-sample.txt"] = cp
+    return paths
+
+
+def emit_llms_txt(g: KnowledgeGraph, out_dir: str, base_url: str = "") -> str:
+    """The standard `llms.txt` index (https://llmstxt.org).
+
+    Points an LLM agent at the machine-readable resources and how to query them.
+    """
+    stats = g.stats
+    version = g.meta.get("version", "unknown")
+    base = base_url.rstrip("/")
+    lines = [
+        "# Kubernetes Knowledge Compiler",
+        "",
+        "> A compiled, versioned knowledge graph of Kubernetes, built from the "
+        "official documentation and OpenAPI spec at **compile time**. Every fact "
+        "is traceable to its source. No runtime LLM is involved in serving this "
+        "site — it is a static, queryable knowledge resource.",
+        "",
+        f"Corpus version: {version}. Nodes: {len(g.nodes)}. "
+        f"Relationships: {len(g.edges)}. "
+        f"AI-synthesized documentation: "
+        f"{sum(1 for n in g.nodes if n.derived_by.startswith('ai:'))}.",
+        "",
+        "## How to use this resource",
+        "",
+        "- The full structured knowledge base is `dataset.json` (nodes + typed "
+        "edges + provenance). Fetch it and filter by `id` / `type`.",
+        "- For lighter, human-readable reads, use the per-type `llms-*.txt` dumps "
+        "below (one concept per block).",
+        "- `knowledge.jsonl` is the same data, one node per line.",
+        "- To read a single node's synthesized documentation, open "
+        "`/docs?id=<node_id>` (e.g. `/docs?id=gloss:pod`).",
+        "- Node ids look like `gloss:<term>`, `api:<Object>`, `page:<slug>`, "
+        "`concept:<heading>`.",
+        "",
+        "## Machine-readable resources",
+        "",
+        f"- [dataset.json]({base}/dataset.json) — full knowledge graph (JSON)",
+        f"- [knowledge.jsonl]({base}/knowledge.jsonl) — same data, one node per line",
+        f"- [index.json]({base}/index.json) — lightweight title/summary/tag index",
+        f"- [knowledge.db]({base}/knowledge.db) — SQLite (download + query locally)",
+        f"- [knowledge.gexf]({base}/knowledge.gexf) — graph format (Gephi/cytoscape)",
+        "",
+        "### Per-type plain-text dumps",
+        f"- [llms-glossary.txt]({base}/llms-glossary.txt) — glossary terms",
+        f"- [llms-api-objects.txt]({base}/llms-api-objects.txt) — API objects",
+        f"- [llms-pages.txt]({base}/llms-pages.txt) — documentation pages",
+        f"- [llms-rbac.txt]({base}/llms-rbac.txt) — RBAC roles",
+        f"- [llms-control-plane.txt]({base}/llms-control-plane.txt) — control-plane components",
+        f"- [llms-concepts-sample.txt]({base}/llms-concepts-sample.txt) — concept headings (sample)",
+        "",
+        "## Interactive views",
+        "",
+    ]
+    for href, desc in _LLM_VIEWS:
+        lines.append(f"- [{href}]({base}{href}) — {desc}")
+    lines.append("")
+    lines.append(
+        "## Note on provenance\n"
+        "Nodes tagged `derived_by` starting with `ai:` were synthesized from source "
+        "quotes at compile time (confidence < 1.0). All carry `provenance` pointing "
+        "to the originating document. Prefer source quotes when available."
+    )
+    lines.append("")
+    path = os.path.join(out_dir, "llms.txt")
+    atomic_write(path, "\n".join(lines))
+    return path
+
+
+def emit_sitemap(g: KnowledgeGraph, out_dir: str, base_url: str = "https://k8s-docs-compiler.vercel.app") -> str:
+    urls = [f"{base_url.rstrip('/')}{h}" for h, _ in _LLM_VIEWS]
+    urls.append(f"{base_url.rstrip('/')}/docs")  # docs is id-driven; include the base
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in urls:
+        xml.append(f"  <url><loc>{_esc(u)}</loc></url>")
+    xml.append("</urlset>")
+    path = os.path.join(out_dir, "sitemap.xml")
+    atomic_write(path, "\n".join(xml))
+    return path
+
+
+def emit_robots(out_dir: str, base_url: str = "https://k8s-docs-compiler.vercel.app") -> str:
+    text = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {base_url.rstrip('/')}/sitemap.xml\n"
+    )
+    path = os.path.join(out_dir, "robots.txt")
+    atomic_write(path, text)
+    return path
+
+
 def emit_all(g: KnowledgeGraph, out_dir: str, emit_json_: bool = True,
              emit_sqlite_: bool = True, emit_gexf_: bool = True,
-             emit_web_: bool = True) -> dict:
+             emit_web_: bool = True,
+             base_url: str = "https://k8s-docs-compiler.vercel.app") -> dict:
     os.makedirs(out_dir, exist_ok=True)
     paths = {}
     if emit_json_:
@@ -175,4 +366,10 @@ def emit_all(g: KnowledgeGraph, out_dir: str, emit_json_: bool = True,
         paths["gexf"] = emit_gexf(g, out_dir)
     if emit_web_:
         paths["web"] = emit_web(g, out_dir)
+    # LLM-traversability layer
+    paths["jsonl"] = emit_llms_dumps(g, out_dir)["jsonl"]
+    paths.update(emit_llms_dumps(g, out_dir))
+    paths["llms_txt"] = emit_llms_txt(g, out_dir, base_url)
+    paths["sitemap"] = emit_sitemap(g, out_dir, base_url)
+    paths["robots"] = emit_robots(out_dir, base_url)
     return paths

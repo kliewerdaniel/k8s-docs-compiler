@@ -1,0 +1,143 @@
+# Kubernetes knowledge — role (16 entries)
+
+# permissions:pods  [role]
+tags: rbac, core, security
+
+RBAC permissions to manage 'pods' (group=core).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:services  [role]
+tags: rbac, core, networking, security
+
+RBAC permissions to manage 'services' (group=core).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:deployments  [role]
+tags: rbac, apps, security
+
+RBAC permissions to manage 'deployments' (group=apps).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:replicasets  [role]
+tags: rbac, apps, security
+
+RBAC permissions to manage 'replicasets' (group=apps).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:statefulsets  [role]
+tags: rbac, apps, security
+
+RBAC permissions to manage 'statefulsets' (group=apps).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:daemonsets  [role]
+tags: rbac, apps, security
+
+RBAC permissions to manage 'daemonsets' (group=apps).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:configmaps  [role]
+tags: rbac, core, security
+
+RBAC permissions to manage 'configmaps' (group=core).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:secrets  [role]
+tags: rbac, core, security
+
+RBAC permissions to manage 'secrets' (group=core).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:namespaces  [role]
+tags: rbac, core, security
+
+RBAC permissions to manage 'namespaces' (group=core).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:nodes  [role]
+tags: rbac, core, security
+
+RBAC permissions to manage 'nodes' (group=core).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:roles  [role]
+tags: rbac, rbac.authorization.k8s.io, security
+
+RBAC permissions to manage 'roles' (group=rbac.authorization.k8s.io).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:rolebindings  [role]
+tags: rbac, rbac.authorization.k8s.io, security
+
+RBAC permissions to manage 'rolebindings' (group=rbac.authorization.k8s.io).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:clusterroles  [role]
+tags: rbac, rbac.authorization.k8s.io, security
+
+RBAC permissions to manage 'clusterroles' (group=rbac.authorization.k8s.io).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:clusterrolebindings  [role]
+tags: rbac, rbac.authorization.k8s.io, security
+
+RBAC permissions to manage 'clusterrolebindings' (group=rbac.authorization.k8s.io).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:ingresses  [role]
+tags: rbac, networking.k8s.io, networking, security
+
+RBAC permissions to manage 'ingresses' (group=networking.k8s.io).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac
+
+---
+
+# permissions:customresourcedefinitions  [role]
+tags: rbac, apiextensions.k8s.io, security
+
+RBAC permissions to manage 'customresourcedefinitions' (group=apiextensions.k8s.io).
+
+sources: kubernetes/website:reference/access-authn-authz/rbac

@@ -1,0 +1,44 @@
+# Kubernetes knowledge — controller (5 entries)
+
+# kube-apiserver  [controller]
+tags: control-plane
+
+Control-plane component: kube-apiserver.
+
+sources: kubernetes/website:concepts/architecture
+
+---
+
+# kube-scheduler  [controller]
+tags: control-plane
+
+Control-plane component: kube-scheduler.
+
+sources: kubernetes/website:concepts/architecture
+
+---
+
+# kube-controller-manager  [controller]
+tags: control-plane
+
+Control-plane component: kube-controller-manager.
+
+sources: kubernetes/website:concepts/architecture
+
+---
+
+# kubelet  [controller]
+tags: control-plane
+
+Control-plane component: kubelet.
+
+sources: kubernetes/website:concepts/architecture
+
+---
+
+# kube-proxy  [controller]
+tags: control-plane, networking
+
+Control-plane component: kube-proxy.
+
+sources: kubernetes/website:concepts/architecture

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://k8s-docs-compiler.vercel.app/</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/graph</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/explore</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/api</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/relationships</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/learn</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/rbac</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/search</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/docs</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/start</loc></url>
+  <url><loc>https://k8s-docs-compiler.vercel.app/docs</loc></url>
+</urlset>

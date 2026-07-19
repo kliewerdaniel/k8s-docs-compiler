@@ -256,3 +256,33 @@ def test_pass_registry_toggle():
     assert ai_passes.resolve_passes(True, None) == ["synthesis", "prerequisites", "clusters"]
     assert ai_passes.resolve_passes(True, "synthesis") == ["synthesis"]
     assert ai_passes.resolve_passes(True, "synthesis,bogus") == ["synthesis"]
+
+
+def test_llm_traversability_artifacts(tmp_path):
+    from compiler import artifacts
+    g = KnowledgeGraph(meta={"version": "fixture", "build_seconds": 0,
+                              "source_url": "", "generated_at": "", "ir_version": 1})
+    g.add_node(Node(id="gloss:pod", type=NodeType.GLOSSARY.value, title="Pod",
+                    summary="smallest unit", body="A Pod wraps containers.",
+                    provenance=[Provenance(source="pod.md", quote="Pods run containers.")]))
+    g.add_node(Node(id="api:Service", type=NodeType.API_OBJECT.value, title="Service",
+                    body="Exposes apps on a network."))
+    g.compute_stats()
+    out = str(tmp_path / "out")
+    paths = artifacts.emit_all(g, out, base_url="https://example.test")
+    # llms.txt present and well-formed
+    llms = open(paths["llms_txt"], encoding="utf-8").read()
+    assert llms.startswith("# Kubernetes Knowledge Compiler")
+    assert "https://example.test/dataset.json" in llms   # slash-correct URL
+    assert "Corpus version: fixture" in llms
+    # per-type dumps
+    assert os.path.exists(paths["llms-glossary.txt"])
+    assert "Pod" in open(paths["llms-glossary.txt"], encoding="utf-8").read()
+    # jsonl one node per line
+    lines = open(paths["jsonl"], encoding="utf-8").read().strip().split("\n")
+    assert len(lines) == 2
+    import json as _json
+    assert _json.loads(lines[0])["id"] == "gloss:pod"
+    # sitemap + robots
+    assert "<urlset" in open(paths["sitemap"], encoding="utf-8").read()
+    assert "Sitemap:" in open(paths["robots"], encoding="utf-8").read()

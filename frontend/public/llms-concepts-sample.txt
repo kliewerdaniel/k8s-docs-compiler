@@ -1,0 +1,2799 @@
+# Kubernetes knowledge — concept headings (sample of 400/4800)
+
+# Heading levels  [concept]
+tags: test.md, api, cli
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Inline elements  [concept]
+tags: test.md, api, cli
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Lists  [concept]
+tags: test.md, storage, networking
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Code blocks  [concept]
+tags: test.md
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Links  [concept]
+tags: test.md, networking, storage
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Images  [concept]
+tags: test.md, storage, security, observability
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Tables  [concept]
+tags: test.md, storage, scheduling, observability
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Visualizations with Mermaid  [concept]
+tags: test.md
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Sidebars and Admonitions  [concept]
+tags: test.md, api, cli, extensibility
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Includes  [concept]
+tags: test.md, storage, security
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Katacoda Embedded Live Environment  [concept]
+tags: test.md, api, cli, extensibility
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# H3  [concept]
+tags: test.md, api, cli, extensibility
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Inline text styles  [concept]
+tags: test.md, api, cli
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Bullet lists  [concept]
+tags: test.md, cli, api
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Numbered lists  [concept]
+tags: test.md, storage, scheduling
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Tab lists  [concept]
+tags: test.md, storage, networking
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Header within a tab list  [concept]
+tags: test.md, networking, storage
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Checklists  [concept]
+tags: test.md, storage, security, observability
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Code blocks containing Hugo shortcodes  [concept]
+tags: test.md, cli
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Sidebars  [concept]
+tags: test.md, storage, security
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# Admonitions  [concept]
+tags: test.md, security, observability
+
+sources: test.md (https://kubernetes.io/docs/test/)
+
+---
+
+# {{% heading "prerequisites" %}}  [concept]
+tags: tasks, storage, security, scheduling
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# Scaling StatefulSets  [concept]
+tags: tasks
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# Troubleshooting  [concept]
+tags: tasks, observability
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# {{% heading "whatsnext" %}}  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# Use kubectl to scale StatefulSets  [concept]
+tags: tasks, cli, workloads
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# Make in-place updates on your StatefulSets  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# Scaling down does not work right  [concept]
+tags: tasks, observability, scheduling
+
+sources: tasks/run-application/scale-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/scale-stateful-set/)
+
+---
+
+# Deleting a StatefulSet  [concept]
+tags: tasks, workloads, scheduling
+
+sources: tasks/run-application/delete-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/delete-stateful-set/)
+
+---
+
+# Persistent Volumes  [concept]
+tags: tasks, storage
+
+sources: tasks/run-application/delete-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/delete-stateful-set/)
+
+---
+
+# Complete deletion of a StatefulSet  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/delete-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/delete-stateful-set/)
+
+---
+
+# Force deletion of StatefulSet pods  [concept]
+tags: tasks, workloads, api
+
+sources: tasks/run-application/delete-stateful-set.md (https://kubernetes.io/docs/tasks/run-application/delete-stateful-set/)
+
+---
+
+# Run and expose php-apache server  [concept]
+tags: tasks, networking, api
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Create the HorizontalPodAutoscaler {#create-horizontal-pod-autoscaler}  [concept]
+tags: tasks, workloads, api
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Increase the load {#increase-load}  [concept]
+tags: tasks, networking, scheduling
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Stop generating load {#stop-load}  [concept]
+tags: tasks, scheduling, api
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Autoscaling on multiple metrics and custom metrics  [concept]
+tags: tasks, observability, workloads
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Appendix: Horizontal Pod Autoscaler Status Conditions  [concept]
+tags: tasks, api, cli, scheduling
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Quantities  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Other possible scenarios  [concept]
+tags: tasks, observability, scheduling
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Autoscaling on more specific metrics  [concept]
+tags: tasks, scheduling
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Autoscaling on metrics not related to Kubernetes objects  [concept]
+tags: tasks, observability, api
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# Creating the autoscaler declaratively  [concept]
+tags: tasks, scheduling, extensibility
+
+sources: tasks/run-application/horizontal-pod-autoscale-walkthrough.md (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+---
+
+# {{% heading "objectives" %}}  [concept]
+tags: tasks, storage, security
+
+sources: tasks/run-application/run-single-instance-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)
+
+---
+
+# Deploy MySQL  [concept]
+tags: tasks, storage, security
+
+sources: tasks/run-application/run-single-instance-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)
+
+---
+
+# Accessing the MySQL instance  [concept]
+tags: tasks, api, cli
+
+sources: tasks/run-application/run-single-instance-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)
+
+---
+
+# Updating  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/run-application/run-single-instance-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)
+
+---
+
+# Deleting a deployment  [concept]
+tags: tasks, workloads, api
+
+sources: tasks/run-application/run-single-instance-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)
+
+---
+
+# Performing a rolling update  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Monitoring rollout progress  [concept]
+tags: tasks, observability
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Pausing and resuming a rollout  [concept]
+tags: tasks, scheduling, observability
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Configuring rolling update strategy  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Rolling back to a previous revision {#rollback}  [concept]
+tags: tasks, storage
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# {{% heading "cleanup" %}}  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Updating with `kubectl apply`  [concept]
+tags: tasks, cli, api
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Updating only the container image  [concept]
+tags: tasks, api, cli
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Pausing a rollout  [concept]
+tags: tasks, scheduling, api
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Making additional changes while paused  [concept]
+tags: tasks, cli, api
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Resuming a rollout  [concept]
+tags: tasks, scheduling, observability
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Detecting a stalled rollout  [concept]
+tags: tasks, observability, scheduling
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Viewing rollout history  [concept]
+tags: tasks, observability
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Rolling back to the previous revision  [concept]
+tags: tasks, cli, api
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Rolling back to a specific revision  [concept]
+tags: tasks, storage
+
+sources: tasks/run-application/update-deployment-rolling.md (https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/)
+
+---
+
+# Understanding stateful Pod initialization  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Sending client traffic  [concept]
+tags: tasks, networking, scheduling
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Simulate Pod and Node failure {#simulate-pod-and-node-downtime}  [concept]
+tags: tasks, networking, scheduling
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Scaling the number of replicas  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Create a ConfigMap {#configmap}  [concept]
+tags: tasks, storage, security
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Create Services {#services}  [concept]
+tags: tasks, networking
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Create the StatefulSet {#statefulset}  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Generating configuration  [concept]
+tags: tasks
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Cloning existing data  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Starting replication  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Break the Readiness probe  [concept]
+tags: tasks, observability, scheduling
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Delete Pods  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Drain a Node  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/run-application/run-replicated-stateful-application.md (https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)
+
+---
+
+# Scaling up a Deployment  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Scaling down a Deployment  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Scaling to zero  [concept]
+tags: tasks, storage
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Other ways to change the replica count  [concept]
+tags: tasks, scheduling, api
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# When to use manual versus automatic scaling  [concept]
+tags: tasks, scheduling, extensibility
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Scaling up using `kubectl scale`  [concept]
+tags: tasks, cli, api, workloads
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Declarative scaling using `kubectl apply`  [concept]
+tags: tasks
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Scale using `kubectl edit`  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Scale using `kubectl patch`  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/run-application/scale-deployment.md (https://kubernetes.io/docs/tasks/run-application/scale-deployment/)
+
+---
+
+# Protecting an Application with a PodDisruptionBudget  [concept]
+tags: tasks, scheduling, security
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Identify an Application to Protect  [concept]
+tags: tasks, security, observability
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Think about how your application reacts to disruptions  [concept]
+tags: tasks, observability, scheduling
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Specifying a PodDisruptionBudget  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Create the PDB object  [concept]
+tags: tasks, storage, api
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Check the status of the PDB  [concept]
+tags: tasks, observability, api
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Unhealthy Pod Eviction Policy  [concept]
+tags: tasks, security
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Arbitrary workloads and arbitrary selectors {#arbitrary-controllers-and-selectors}  [concept]
+tags: tasks, workloads, scheduling
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Rounding logic when specifying percentages  [concept]
+tags: tasks, observability, scheduling
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Healthiness of a Pod  [concept]
+tags: tasks, scheduling, observability
+
+sources: tasks/run-application/configure-pdb.md (https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+
+---
+
+# Creating and exploring an nginx deployment  [concept]
+tags: tasks, networking, scheduling, observability
+
+sources: tasks/run-application/run-stateless-application-deployment.md (https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/)
+
+---
+
+# Updating the deployment  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/run-application/run-stateless-application-deployment.md (https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/)
+
+---
+
+# Scaling the application by increasing the replica count  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/run-application/run-stateless-application-deployment.md (https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/)
+
+---
+
+# ReplicationControllers -- the Old Way  [concept]
+tags: tasks, api, cli
+
+sources: tasks/run-application/run-stateless-application-deployment.md (https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/)
+
+---
+
+# StatefulSet considerations  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/run-application/force-delete-stateful-set-pod.md (https://kubernetes.io/docs/tasks/run-application/force-delete-stateful-set-pod/)
+
+---
+
+# Force Deletion  [concept]
+tags: tasks, storage, security
+
+sources: tasks/run-application/force-delete-stateful-set-pod.md (https://kubernetes.io/docs/tasks/run-application/force-delete-stateful-set-pod/)
+
+---
+
+# Accessing the API from within a Pod  [concept]
+tags: tasks, api, cli
+
+sources: tasks/run-application/access-api-from-pod.md (https://kubernetes.io/docs/tasks/run-application/access-api-from-pod/)
+
+---
+
+# Using Official Client Libraries  [concept]
+tags: tasks, api, cli
+
+sources: tasks/run-application/access-api-from-pod.md (https://kubernetes.io/docs/tasks/run-application/access-api-from-pod/)
+
+---
+
+# Directly accessing the REST API  [concept]
+tags: tasks, api, networking
+
+sources: tasks/run-application/access-api-from-pod.md (https://kubernetes.io/docs/tasks/run-application/access-api-from-pod/)
+
+---
+
+# Using kubectl proxy  [concept]
+tags: tasks, networking
+
+sources: tasks/run-application/access-api-from-pod.md (https://kubernetes.io/docs/tasks/run-application/access-api-from-pod/)
+
+---
+
+# Without using a proxy  [concept]
+tags: tasks, networking
+
+sources: tasks/run-application/access-api-from-pod.md (https://kubernetes.io/docs/tasks/run-application/access-api-from-pod/)
+
+---
+
+# Install kubectl on Windows  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Verify kubectl configuration  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Optional kubectl configurations and plugins  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Install kubectl binary on Windows (via direct download or curl)  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Install on Windows using Chocolatey, Scoop, or winget {#install-nonstandard-package-tools}  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Enable shell autocompletion  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Configure kuberc  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Install `kubectl convert` plugin  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/tools/install-kubectl-windows.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
+
+---
+
+# Install kubectl on macOS  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Install kubectl binary with curl on macOS  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Install with Homebrew on macOS  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Install with Macports on macOS  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Uninstall kubectl on macOS  [concept]
+tags: tasks, cli
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Uninstall kubectl using the command-line  [concept]
+tags: tasks, cli
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Uninstall kubectl using homebrew  [concept]
+tags: tasks, cli
+
+sources: tasks/tools/install-kubectl-macos.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
+
+---
+
+# Install kubectl on Linux  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-linux.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+---
+
+# Install kubectl binary with curl on Linux  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-linux.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+---
+
+# Install using native package management  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/install-kubectl-linux.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+---
+
+# Install using other package management  [concept]
+tags: tasks, extensibility, cli
+
+sources: tasks/tools/install-kubectl-linux.md (https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+---
+
+# kubectl  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/_index.md (https://kubernetes.io/docs/tasks/tools/_index/)
+
+---
+
+# kind  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/tools/_index.md (https://kubernetes.io/docs/tasks/tools/_index/)
+
+---
+
+# minikube  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/_index.md (https://kubernetes.io/docs/tasks/tools/_index/)
+
+---
+
+# kubeadm  [concept]
+tags: tasks, cli, api
+
+sources: tasks/tools/_index.md (https://kubernetes.io/docs/tasks/tools/_index/)
+
+---
+
+# Troubleshooting the 'No Auth Provider Found' error message {#no-auth-provider-found}  [concept]
+tags: tasks, api, cli
+
+sources: tasks/tools/included/verify-kubectl.md (https://kubernetes.io/docs/tasks/tools/included/verify-kubectl/)
+
+---
+
+# Introduction  [concept]
+tags: tasks
+
+sources: tasks/tools/included/optional-kubectl-configs-bash-mac.md (https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/)
+
+---
+
+# Upgrade Bash  [concept]
+tags: tasks
+
+sources: tasks/tools/included/optional-kubectl-configs-bash-mac.md (https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/)
+
+---
+
+# Install bash-completion  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/tools/included/optional-kubectl-configs-bash-mac.md (https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/)
+
+---
+
+# Enable kubectl autocompletion  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/tools/included/optional-kubectl-configs-bash-mac.md (https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/)
+
+---
+
+# Trade-offs  [concept]
+tags: tasks
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# How to create objects  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# How to update objects  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# How to delete objects  [concept]
+tags: tasks, storage
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# How to view an object  [concept]
+tags: tasks, api, cli
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# Limitations  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# Creating and editing an object from a URL without saving the configuration  [concept]
+tags: tasks, api, cli
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# Migrating from imperative commands to imperative object configuration  [concept]
+tags: tasks, cli, api, extensibility
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# Defining controller selectors and PodTemplate labels  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/manage-kubernetes-objects/imperative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-config/)
+
+---
+
+# Re-encrypt Kubernetes secrets using storage version migration  [concept]
+tags: tasks, security
+
+sources: tasks/manage-kubernetes-objects/storage-version-migration.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/storage-version-migration/)
+
+---
+
+# Update the preferred storage schema of a CRD  [concept]
+tags: tasks, storage, api
+
+sources: tasks/manage-kubernetes-objects/storage-version-migration.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/storage-version-migration/)
+
+---
+
+# Overview of Kustomize  [concept]
+tags: tasks, cli, api
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# Bases and Overlays  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# How to apply/view/delete objects using Kustomize  [concept]
+tags: tasks, cli, api
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# Kustomize Feature List  [concept]
+tags: tasks
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# Generating Resources  [concept]
+tags: tasks, storage, networking, scheduling
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# Setting cross-cutting fields  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# Composing and Customizing Resources  [concept]
+tags: tasks
+
+sources: tasks/manage-kubernetes-objects/kustomization.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
+
+---
+
+# Using `set` commands to modify objects before creation  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/imperative-command.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-command/)
+
+---
+
+# Using `--edit` to modify objects before creation  [concept]
+tags: tasks, cli, api
+
+sources: tasks/manage-kubernetes-objects/imperative-command.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/imperative-command/)
+
+---
+
+# Use a strategic merge patch to update a Deployment  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Use a JSON merge patch to update a Deployment  [concept]
+tags: tasks, api, cli
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Use strategic merge patch to update a Deployment using the retainKeys strategy  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Summary  [concept]
+tags: tasks, storage
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Notes on the strategic merge patch  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Notes on the strategic merge patch using the retainKeys strategy  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Alternate forms of the kubectl patch command  [concept]
+tags: tasks, cli, extensibility
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Update an object's replica count using `kubectl patch` with `--subresource` {#scale-kubectl-patch}  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/manage-kubernetes-objects/update-api-object-kubectl-patch.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/)
+
+---
+
+# Overview  [concept]
+tags: tasks, storage, security, observability
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# How apply calculates differences and merges changes  [concept]
+tags: tasks, api, cli
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Default field values  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# How to change ownership of a field between the configuration file and direct imperative writers  [concept]
+tags: tasks, storage
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Changing management methods  [concept]
+tags: tasks
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Recommended: `kubectl delete -f <filename>`  [concept]
+tags: tasks, cli, api
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Alternative: `kubectl apply -f <directory> --prune`  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Merge patch calculation  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# How different types of fields are merged  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Merging changes to primitive fields  [concept]
+tags: tasks, api, cli
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Merging changes to map fields  [concept]
+tags: tasks, storage, api
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Merging changes for fields of type list  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# How to clear server-defaulted fields or fields set by other writers  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Changing the owner from a direct imperative writer to a configuration file  [concept]
+tags: tasks, storage, security
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Changing the owner from a configuration file to a direct imperative writer  [concept]
+tags: tasks, cli, api
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Migrating from imperative command management to declarative object configuration  [concept]
+tags: tasks
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Migrating from imperative object configuration to declarative object configuration  [concept]
+tags: tasks
+
+sources: tasks/manage-kubernetes-objects/declarative-config.md (https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/)
+
+---
+
+# Extend Service IP Ranges  [concept]
+tags: tasks, networking
+
+sources: tasks/network/extend-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/extend-service-ip-ranges/)
+
+---
+
+# Extend the number of available IPs for Services  [concept]
+tags: tasks, networking
+
+sources: tasks/network/extend-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/extend-service-ip-ranges/)
+
+---
+
+# Kubernetes Service CIDR Policies  [concept]
+tags: tasks, networking
+
+sources: tasks/network/extend-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/extend-service-ip-ranges/)
+
+---
+
+# Adding a new ServiceCIDR  [concept]
+tags: tasks, networking
+
+sources: tasks/network/extend-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/extend-service-ip-ranges/)
+
+---
+
+# Deleting a ServiceCIDR  [concept]
+tags: tasks, networking
+
+sources: tasks/network/extend-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/extend-service-ip-ranges/)
+
+---
+
+# Preventing Unauthorized ServiceCIDR Creation/Update using Validating Admission Policy  [concept]
+tags: tasks, networking, security
+
+sources: tasks/network/extend-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/extend-service-ip-ranges/)
+
+---
+
+# Validate addressing  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/network/validate-dual-stack.md (https://kubernetes.io/docs/tasks/network/validate-dual-stack/)
+
+---
+
+# Validate Services  [concept]
+tags: tasks, networking
+
+sources: tasks/network/validate-dual-stack.md (https://kubernetes.io/docs/tasks/network/validate-dual-stack/)
+
+---
+
+# Validate node addressing  [concept]
+tags: tasks, networking, security
+
+sources: tasks/network/validate-dual-stack.md (https://kubernetes.io/docs/tasks/network/validate-dual-stack/)
+
+---
+
+# Validate Pod addressing  [concept]
+tags: tasks, networking, scheduling
+
+sources: tasks/network/validate-dual-stack.md (https://kubernetes.io/docs/tasks/network/validate-dual-stack/)
+
+---
+
+# Create a dual-stack load balanced Service  [concept]
+tags: tasks, networking
+
+sources: tasks/network/validate-dual-stack.md (https://kubernetes.io/docs/tasks/network/validate-dual-stack/)
+
+---
+
+# Default hosts file content  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/network/customize-hosts-file-for-pods.md (https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/)
+
+---
+
+# Adding additional entries with hostAliases  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/network/customize-hosts-file-for-pods.md (https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/)
+
+---
+
+# Why does the kubelet manage the hosts file? {#why-does-kubelet-manage-the-hosts-file}  [concept]
+tags: tasks, networking, security
+
+sources: tasks/network/customize-hosts-file-for-pods.md (https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/)
+
+---
+
+# Kubernetes Default ServiceCIDR Reconfiguration  [concept]
+tags: tasks, networking
+
+sources: tasks/network/reconfigure-default-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/reconfigure-default-service-ip-ranges/)
+
+---
+
+# Kubernetes ServiceCIDR Reconfiguration Categories  [concept]
+tags: tasks, networking
+
+sources: tasks/network/reconfigure-default-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/reconfigure-default-service-ip-ranges/)
+
+---
+
+# Manual Operations for Replacing the Default ServiceCIDR  [concept]
+tags: tasks, networking
+
+sources: tasks/network/reconfigure-default-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/reconfigure-default-service-ip-ranges/)
+
+---
+
+# Illustrative Reconfiguration Steps  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/network/reconfigure-default-service-ip-ranges.md (https://kubernetes.io/docs/tasks/network/reconfigure-default-service-ip-ranges/)
+
+---
+
+# Run a Pod that uses a user namespace {#create-pod}  [concept]
+tags: tasks, security, scheduling
+
+sources: tasks/configure-pod-container/user-namespaces.md (https://kubernetes.io/docs/tasks/configure-pod-container/user-namespaces/)
+
+---
+
+# Create a namespace  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Create a Pod that gets assigned a QoS class of Guaranteed  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Create a Pod that gets assigned a QoS class of Burstable  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Create a Pod that gets assigned a QoS class of BestEffort  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Create a Pod that has two Containers  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Retrieve the QoS class for a Pod  [concept]
+tags: tasks, api, cli
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Clean up  [concept]
+tags: tasks, storage, security
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# For app developers  [concept]
+tags: tasks, api, cli
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# For cluster administrators  [concept]
+tags: tasks, storage, security
+
+sources: tasks/configure-pod-container/quality-service-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/)
+
+---
+
+# Configure a projected volume for a pod  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/configure-projected-volume-storage.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-projected-volume-storage/)
+
+---
+
+# Use the default service account to access the API server  [concept]
+tags: tasks, networking
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Use more than one ServiceAccount {#use-multiple-service-accounts}  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Manually create an API token for a ServiceAccount  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Add ImagePullSecrets to a service account  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# ServiceAccount token volume projection  [concept]
+tags: tasks, networking, storage, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Opt out of API credential automounting  [concept]
+tags: tasks, security, api
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Cleanup {#cleanup-use-multiple-service-accounts}  [concept]
+tags: tasks, networking
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Manually create a long-lived API token for a ServiceAccount  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Add image pull secret to service account  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Verify that imagePullSecrets are set for new Pods  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Launch a Pod using service account token projection  [concept]
+tags: tasks, networking
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Service account issuer discovery  [concept]
+tags: tasks, networking
+
+sources: tasks/configure-pod-container/configure-service-account.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
+
+---
+
+# Configure GMSAs and Windows nodes in Active Directory  [concept]
+tags: tasks, security, networking
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Create GMSA credential spec resources  [concept]
+tags: tasks, security, api
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Configure cluster role to enable RBAC on specific GMSA credential specs  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Assign role to service accounts to use specific GMSA credspecs  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Configure GMSA credential spec reference in Pod spec  [concept]
+tags: tasks, security, api
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Authenticating to network shares using hostname or FQDN  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Install the GMSACredentialSpec CRD  [concept]
+tags: tasks, security, storage
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Install webhooks to validate GMSA users  [concept]
+tags: tasks, security, api
+
+sources: tasks/configure-pod-container/configure-gmsa.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)
+
+---
+
+# Log in to Docker Hub  [concept]
+tags: tasks, api, cli
+
+sources: tasks/configure-pod-container/pull-image-private-registry.md (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+
+---
+
+# Create a Secret based on existing credentials {#registry-secret-existing-credentials}  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/pull-image-private-registry.md (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+
+---
+
+# Create a Secret by providing credentials on the command line  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/pull-image-private-registry.md (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+
+---
+
+# Inspecting the Secret `regcred`  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/pull-image-private-registry.md (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+
+---
+
+# Create a Pod that uses your Secret  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/pull-image-private-registry.md (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+
+---
+
+# Using images from multiple registries  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/configure-pod-container/pull-image-private-registry.md (https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+
+---
+
+# Configure a volume for a Pod  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/configure-volume-storage.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/)
+
+---
+
+# Overall approach  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 0. Decide whether Pod Security Admission is right for you {#is-psa-right-for-you}  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 1. Review namespace permissions {#review-namespace-permissions}  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 2. Simplify & standardize PodSecurityPolicies {#simplify-psps}  [concept]
+tags: tasks, security, networking
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 3. Update Namespaces {#update-namespaces}  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 4. Review namespace creation processes {#review-namespace-creation-process}  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 5. Disable PodSecurityPolicy {#disable-psp}  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 2.a. Eliminate purely mutating fields {#eliminate-mutating-fields}  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 2.b. Eliminate options not covered by the Pod Security Standards {#eliminate-non-standard-options}  [concept]
+tags: tasks, security, networking
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 2.c. Rollout the updated PSPs {#psp-update-rollout}  [concept]
+tags: tasks, networking, security
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 3.a. Identify an appropriate Pod Security level {#identify-appropriate-level}  [concept]
+tags: tasks, security, scheduling
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 3.b. Verify the Pod Security level {#verify-pss-level}  [concept]
+tags: tasks, security, scheduling
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 3.c. Enforce the Pod Security level {#enforce-pod-security-level}  [concept]
+tags: tasks, security, scheduling
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# 3.d. Bypass PodSecurityPolicy {#bypass-psp}  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/migrate-from-psp.md (https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/)
+
+---
+
+# Specify a memory request and a memory limit  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/configure-pod-container/assign-memory-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+---
+
+# Exceed a Container's memory limit  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/configure-pod-container/assign-memory-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+---
+
+# Specify a memory request that is too big for your Nodes  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/configure-pod-container/assign-memory-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+---
+
+# Memory units  [concept]
+tags: tasks, storage, observability
+
+sources: tasks/configure-pod-container/assign-memory-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+---
+
+# If you do not specify a memory limit  [concept]
+tags: tasks, storage, security
+
+sources: tasks/configure-pod-container/assign-memory-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+---
+
+# Motivation for memory requests and limits  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/configure-pod-container/assign-memory-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
+
+---
+
+# Define postStart and preStop handlers  [concept]
+tags: tasks, scheduling, workloads
+
+sources: tasks/configure-pod-container/attach-handler-lifecycle-event.md (https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/)
+
+---
+
+# Discussion  [concept]
+tags: tasks, api, cli, extensibility
+
+sources: tasks/configure-pod-container/attach-handler-lifecycle-event.md (https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/)
+
+---
+
+# Reference  [concept]
+tags: tasks, storage, security
+
+sources: tasks/configure-pod-container/attach-handler-lifecycle-event.md (https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/)
+
+---
+
+# Run a Pod that uses an image volume {#create-pod}  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/image-volumes.md (https://kubernetes.io/docs/tasks/configure-pod-container/image-volumes/)
+
+---
+
+# Use `subPath` (or `subPathExpr`)  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/configure-pod-container/image-volumes.md (https://kubernetes.io/docs/tasks/configure-pod-container/image-volumes/)
+
+---
+
+# Further reading  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/image-volumes.md (https://kubernetes.io/docs/tasks/configure-pod-container/image-volumes/)
+
+---
+
+# HostProcess Pod configuration requirements  [concept]
+tags: tasks, scheduling, storage
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Volume mounts  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Resource limits  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Choosing a user account  [concept]
+tags: tasks, security, api
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Base Image for HostProcess Containers  [concept]
+tags: tasks, storage, scheduling
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Troubleshooting HostProcess containers  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# When should I use a Windows HostProcess container?  [concept]
+tags: tasks, networking, storage, security
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Example manifest (excerpt) {#manifest-example}  [concept]
+tags: tasks, networking, storage
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Containerd v1.6  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Containerd v1.7 (and greater)  [concept]
+tags: tasks, storage, networking
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# System accounts  [concept]
+tags: tasks, security, storage
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Local accounts {#local-accounts}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/create-hostprocess-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)
+
+---
+
+# Create a ConfigMap  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Interim cleanup  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Define container environment variables using ConfigMap data  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Configure all key-value pairs in a ConfigMap as container environment variables  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Use ConfigMap-defined environment variables in Pod commands  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Add ConfigMap data to a Volume  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Understanding ConfigMaps and Pods  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Optional ConfigMaps  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Restrictions  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Create a ConfigMap using `kubectl create configmap`  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Create a ConfigMap from generator  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Define a container environment variable with data from a single ConfigMap  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Define container environment variables with data from multiple ConfigMaps  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Populate a Volume with data stored in a ConfigMap  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Add ConfigMap data to a specific path in the Volume  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Project keys to specific paths and file permissions  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Optional references  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Mounted ConfigMaps are updated automatically  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-configmap.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+---
+
+# Pod resize status  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# Container resize policies  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# Example 1: Resizing CPU without restart  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# Example 2: Resizing memory with restart  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# Troubleshooting: Infeasible resize request  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# How kubelet retries Deferred resizes  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# Leveraging `observedGeneration` Fields  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# For application developers  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-container-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
+
+---
+
+# Add a label to a node  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pods-nodes-using-node-affinity.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/)
+
+---
+
+# Schedule a Pod using required node affinity  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pods-nodes-using-node-affinity.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/)
+
+---
+
+# Schedule a Pod using preferred node affinity  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pods-nodes-using-node-affinity.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/)
+
+---
+
+# Specify a CPU request and a CPU limit  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-cpu-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+
+---
+
+# CPU units  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-cpu-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+
+---
+
+# Specify a CPU request that is too big for your Nodes  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-cpu-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+
+---
+
+# If you do not specify a CPU limit  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-cpu-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+
+---
+
+# If you specify a CPU limit but do not specify a CPU request  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-cpu-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+
+---
+
+# Motivation for CPU requests and limits  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-cpu-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)
+
+---
+
+# Define a liveness command  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Define a liveness HTTP request  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Define a TCP liveness probe  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Define a gRPC liveness probe  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Use a named port  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Protect slow starting containers with startup probes {#define-startup-probes}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Define readiness probes  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+---
+
+# Install Kompose  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Use Kompose  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# User Guide  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# `kompose convert`  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Alternative Conversions  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Labels  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Restart  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Docker Compose Versions  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Kubernetes `kompose convert` example  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# OpenShift `kompose convert` example  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Warning about Deployment Configurations  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/translate-compose-kubernetes.md (https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/)
+
+---
+
+# Requiring the `baseline` Pod Security Standard with namespace labels  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/enforce-standards-namespace-labels.md (https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/)
+
+---
+
+# Add labels to existing namespaces with `kubectl label`  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/enforce-standards-namespace-labels.md (https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/)
+
+---
+
+# Applying to all namespaces  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/enforce-standards-namespace-labels.md (https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/)
+
+---
+
+# Applying to a single namespace  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/enforce-standards-namespace-labels.md (https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/)
+
+---
+
+# Create a Pod that has an Init Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-pod-initialization.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-initialization/)
+
+---
+
+# Assign an extended resource to a Pod  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/extended-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/extended-resource/)
+
+---
+
+# Attempt to create a second Pod  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/extended-resource.md (https://kubernetes.io/docs/tasks/configure-pod-container/extended-resource/)
+
+---
+
+# Create a static pod {#static-pod-creation}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/static-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)
+
+---
+
+# Observe static pod behavior {#behavior-of-static-pods}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/static-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)
+
+---
+
+# Dynamic addition and removal of static pods  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/static-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)
+
+---
+
+# Filesystem-hosted static Pod manifest {#configuration-files}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/static-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)
+
+---
+
+# Web-hosted static pod manifest {#pods-created-via-http}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/static-pod.md (https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)
+
+---
+
+# Configure the Admission Controller  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/enforce-standards-admission-controller.md (https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-admission-controller/)
+
+---
+
+# Set the security context for a Pod  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Configure fine-grained SupplementalGroups control for a Pod {#supplementalgroupspolicy}  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Configure volume permission and ownership change policy for Pods  [concept]
+tags: tasks, storage, security
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Delegating volume permission and ownership change to CSI driver  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Set the security context for a Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Set capabilities for a Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Set the Seccomp Profile for a Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Set the AppArmor Profile for a Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Assign SELinux labels to a Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Managing access to the `/proc` filesystem {#proc-access}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Implicit group memberships defined in `/etc/group` in the container image  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Implementations {#implementations-supplementalgroupspolicy}  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Efficient SELinux volume relabeling  [concept]
+tags: tasks, storage
+
+sources: tasks/configure-pod-container/security-context.md (https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+
+---
+
+# Create a pod that gets scheduled to your chosen node  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pods-nodes.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/)
+
+---
+
+# Create a pod that gets scheduled to specific node  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pods-nodes.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/)
+
+---
+
+# Pod Resize Status and Retry Logic  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-pod-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-pod-resources/)
+
+---
+
+# Container Resize Policy and Pod-Level Resize  [concept]
+tags: tasks, security
+
+sources: tasks/configure-pod-container/resize-pod-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-pod-resources/)
+
+---
+
+# Example: Resizing Pod-Level Resources  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/resize-pod-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/resize-pod-resources/)
+
+---
+
+# Set the Username for a Pod  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-runasusername.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-runasusername/)
+
+---
+
+# Set the Username for a Container  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-runasusername.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-runasusername/)
+
+---
+
+# Windows Username limitations  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/configure-runasusername.md (https://kubernetes.io/docs/tasks/configure-pod-container/configure-runasusername/)
+
+---
+
+# Configure a Pod  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/share-process-namespace.md (https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/)
+
+---
+
+# Understanding process namespace sharing  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/share-process-namespace.md (https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/)
+
+---
+
+# Create a pod with memory requests and limits at pod-level  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pod-level-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pod-level-resources/)
+
+---
+
+# Create a pod with CPU requests and limits at pod-level  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pod-level-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pod-level-resources/)
+
+---
+
+# Create a pod with resource requests and limits at both pod-level and container-level  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-pod-level-resources.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-pod-level-resources/)
+
+---
+
+# Access device metadata with a ResourceClaim {#access-metadata-resourceclaim}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/access-dra-device-metadata.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/access-dra-device-metadata/)
+
+---
+
+# Access device metadata with a ResourceClaimTemplate {#access-metadata-template}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/access-dra-device-metadata.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/access-dra-device-metadata/)
+
+---
+
+# Read metadata in your application {#read-metadata-application}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/access-dra-device-metadata.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/access-dra-device-metadata/)
+
+---
+
+# Clean up {#clean-up}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/access-dra-device-metadata.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/access-dra-device-metadata/)
+
+---
+
+# Go applications  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/access-dra-device-metadata.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/access-dra-device-metadata/)
+
+---
+
+# About DRA {#about-dra}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/set-up-dra-cluster.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/set-up-dra-cluster/)
+
+---
+
+# Optional: enable additional DRA API groups {#enable-dra}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/set-up-dra-cluster.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/set-up-dra-cluster/)
+
+---
+
+# Verify that DRA is enabled {#verify}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/set-up-dra-cluster.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/set-up-dra-cluster/)
+
+---
+
+# Install device drivers {#install-drivers}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/set-up-dra-cluster.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/set-up-dra-cluster/)
+
+---
+
+# Create DeviceClasses {#create-deviceclasses}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/set-up-dra-cluster.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/set-up-dra-cluster/)
+
+---
+
+# About device allocation with DRA {#about-device-allocation-dra}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/allocate-devices-dra.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/allocate-devices-dra/)
+
+---
+
+# Identify devices to claim {#identify-devices}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/allocate-devices-dra.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/allocate-devices-dra/)
+
+---
+
+# Claim resources {#claim-resources}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/allocate-devices-dra.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/allocate-devices-dra/)
+
+---
+
+# Request devices in workloads using DRA {#request-devices-workloads}  [concept]
+tags: tasks
+
+sources: tasks/configure-pod-container/assign-resources/allocate-devices-dra.md (https://kubernetes.io/docs/tasks/configure-pod-container/assign-resources/allocate-devices-dra/)
+
+---
+
+# API  [concept]
+tags: tasks
+
+sources: tasks/manage-hugepages/scheduling-hugepages.md (https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/)
+
+---
+
+# Why should I use `ReadWriteOncePod`?  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/change-pv-access-mode-readwriteoncepod.md (https://kubernetes.io/docs/tasks/administer-cluster/change-pv-access-mode-readwriteoncepod/)
+
+---
+
+# Migrating existing PersistentVolumes  [concept]
+tags: tasks, storage
+
+sources: tasks/administer-cluster/change-pv-access-mode-readwriteoncepod.md (https://kubernetes.io/docs/tasks/administer-cluster/change-pv-access-mode-readwriteoncepod/)
+
+---
+
+# (Optional) Configure a disruption budget {#configure-poddisruptionbudget}  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/safely-drain-node.md (https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)
+
+---
+
+# Use `kubectl drain` to remove a node from service  [concept]
+tags: tasks, networking
+
+sources: tasks/administer-cluster/safely-drain-node.md (https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)
+
+---
+
+# Draining multiple nodes in parallel  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/safely-drain-node.md (https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)
+
+---
+
+# The Eviction API {#eviction-api}  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/safely-drain-node.md (https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/)
+
+---
+
+# Create a PriorityClass  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Run Pods that request node capacity  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Adjust placeholder resource requests  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Set the desired replica count  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Pick a namespace for the placeholder pods  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Create the placeholder deployment  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Calculate the total reserved resources  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/node-overprovisioning.md (https://kubernetes.io/docs/tasks/administer-cluster/node-overprovisioning/)
+
+---
+
+# Create the config file  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/kubelet-config-file.md (https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)
+
+---
+
+# Start a kubelet process configured via the config file  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/kubelet-config-file.md (https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)
+
+---
+
+# Drop-in directory for kubelet configuration files {#kubelet-conf-d}  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/kubelet-config-file.md (https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)
+
+---
+
+# Viewing the kubelet configuration  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/kubelet-config-file.md (https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)
+
+---
+
+# Kubelet configuration merging order  [concept]
+tags: tasks
+
+sources: tasks/administer-cluster/kubelet-config-file.md (https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)
+
+---
+
+# Determine whether DNS horizontal autoscaling is already enabled {#determining-whether-dns-horizontal-autoscaling-is-already-enabled}  [concept]
+tags: tasks, networking
+
+sources: tasks/administer-cluster/dns-horizontal-autoscaling.md (https://kubernetes.io/docs/tasks/administer-cluster/dns-horizontal-autoscaling/)
+
+---
+
+# Get the name of your DNS Deployment {#find-scaling-target}  [concept]
+tags: tasks, networking
+
+sources: tasks/administer-cluster/dns-horizontal-autoscaling.md (https://kubernetes.io/docs/tasks/administer-cluster/dns-horizontal-autoscaling/)

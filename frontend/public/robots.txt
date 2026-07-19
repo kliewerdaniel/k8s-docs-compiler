@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://k8s-docs-compiler.vercel.app/sitemap.xml
