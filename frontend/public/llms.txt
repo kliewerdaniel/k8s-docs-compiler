@@ -45,3 +45,7 @@ Nodes tagged `derived_by` starting with `ai:` were synthesized from source quote
 
 - [Sovereign Knowledge Compiler Explorer](https://skce-explorer.vercel.app/llms.txt) — Sovereign AI concept corpus
 - [ChatGPT Compile](https://chatgpt-compile.vercel.app/llms.txt) — 2,489-conversation personal corpus
+
+## Built with
+
+This site follows the compile-time-AI pattern packaged as the [Discoverable Knowledge SDK](https://github.com/kliewerdaniel/discoverable-knowledge-sdk) — compile any dataset into a static, agent-discoverable knowledge site.
